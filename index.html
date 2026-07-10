@@ -4931,68 +4931,6 @@ document.getElementById('formBtn').addEventListener('click',function(){
 
 
 
-/* ─── OPTIMIZED SITE ANIMATIONS ─── */
-(function(){
-  document.body.classList.add('site-loaded');
-
-  // Lightweight scroll progress using requestAnimationFrame.
-  const progress = document.createElement('div');
-  progress.id = 'scroll-progress';
-  document.body.appendChild(progress);
-
-  let scrollTicking = false;
-  function updateProgress(){
-    const max = document.documentElement.scrollHeight - window.innerHeight;
-    const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
-    progress.style.width = pct.toFixed(2) + '%';
-    scrollTicking = false;
-  }
-  function requestProgress(){
-    if(!scrollTicking){
-      requestAnimationFrame(updateProgress);
-      scrollTicking = true;
-    }
-  }
-  window.addEventListener('scroll', requestProgress, { passive:true });
-  window.addEventListener('resize', requestProgress);
-  updateProgress();
-
-  // Stagger only key visible items; no mouse tracking, no tilt.
-  const selectors = [
-    '.svc-item',
-    '.proj-card',
-    '.work-card',
-    '.exp-slab',
-    '.tm-testimonial-card',
-    '.stack-group',
-    '.hero-stat',
-    '.skill-tag'
-  ];
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduceMotion) return;
-
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-      if(entry.isIntersecting){
-        entry.target.classList.add('motion-visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold:.08,
-    rootMargin:'0px 0px -30px 0px'
-  });
-
-  selectors.forEach(selector=>{
-    document.querySelectorAll(selector).forEach((el,index)=>{
-      el.classList.add('motion-item');
-      el.style.setProperty('--i', index % 6);
-      observer.observe(el);
-    });
-  });
-})();
-
 </script>
 </body>
 </html>
