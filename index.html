@@ -3171,10 +3171,10 @@ body.site-loaded{
 .scroll-reveal,
 .motion-item{
   opacity:0;
-  transform:translate3d(0,24px,0);
+  transform:translate3d(0,18px,0);
   transition:
-    opacity .55s var(--ease),
-    transform .55s var(--ease);
+    opacity .32s var(--ease),
+    transform .32s var(--ease);
 }
 .scroll-reveal.visible,
 .motion-item.motion-visible{
@@ -3184,22 +3184,22 @@ body.site-loaded{
 
 /* staggered but lightweight */
 .motion-item{
-  transition-delay:calc(var(--i,0) * 45ms);
+  transition-delay:calc(var(--i,0) * 18ms);
 }
 
 /* hero entrance — no looping float */
 .hero-left-side > *{
   opacity:0;
-  transform:translate3d(0,18px,0);
-  animation:heroTextInLite .55s var(--ease) forwards;
+  transform:translate3d(0,12px,0);
+  animation:heroTextInLite .34s var(--ease) forwards;
 }
-.hero-left-side > *:nth-child(1){animation-delay:.08s;}
-.hero-left-side > *:nth-child(2){animation-delay:.16s;}
-.hero-left-side > *:nth-child(3){animation-delay:.24s;}
-.hero-left-side > *:nth-child(4){animation-delay:.32s;}
+.hero-left-side > *:nth-child(1){animation-delay:.03s;}
+.hero-left-side > *:nth-child(2){animation-delay:.06s;}
+.hero-left-side > *:nth-child(3){animation-delay:.09s;}
+.hero-left-side > *:nth-child(4){animation-delay:.12s;}
 
 .hero-image-wrapper{
-  animation:heroImageInLite .65s var(--ease) .18s backwards;
+  animation:heroImageInLite .38s var(--ease) .08s backwards;
 }
 
 @keyframes heroTextInLite{
@@ -3295,8 +3295,8 @@ body.site-loaded{
 @media(max-width:700px){
   .scroll-reveal,
   .motion-item{
-    transition-duration:.38s;
-    transform:translate3d(0,16px,0);
+    transition-duration:.24s;
+    transform:translate3d(0,12px,0);
   }
   .motion-item{
     transition-delay:0ms;
