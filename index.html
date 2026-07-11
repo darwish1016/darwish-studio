@@ -4550,10 +4550,13 @@ footer strong{
 </div>
 </div>
 <div class="contact-form">
-<div class="fg"><label>Your Name</label><input placeholder="John Smith" type="text"/></div>
-<div class="fg"><label>Email Address</label><input placeholder="john@company.com" type="email"/></div>
-<div class="fg"><label>Message</label><textarea placeholder="Tell me what you need help with..."></textarea></div>
-<button class="form-btn" id="formBtn">Send Message →</button>
+<form id="contactForm">
+<div class="fg"><label>Your Name</label><input name="name" placeholder="John Smith" type="text" required/></div>
+<div class="fg"><label>Email Address</label><input name="email" placeholder="john@company.com" type="email" required/></div>
+<div class="fg"><label>Message</label><textarea name="message" placeholder="Tell me what you need help with..." required></textarea></div>
+<button class="form-btn" id="formBtn" type="submit">Send Message →</button>
+<p class="form-status" id="formStatus" aria-live="polite"></p>
+</form>
 </div>
 </div>
 </div>
@@ -4853,10 +4856,38 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 /* ─── FORM ─── */
-document.getElementById('formBtn').addEventListener('click',function(){
-  this.textContent='Message Sent ✓';this.style.background='#10b981';
-  setTimeout(()=>{this.textContent='Send Message →';this.style.background='';},3000);
-});
+const contactForm=document.getElementById('contactForm');
+const formBtn=document.getElementById('formBtn');
+const formStatus=document.getElementById('formStatus');
+if(contactForm && formBtn && formStatus){
+  contactForm.addEventListener('submit',function(e){
+    e.preventDefault();
+
+    const name=contactForm.elements.name.value.trim();
+    const email=contactForm.elements.email.value.trim();
+    const message=contactForm.elements.message.value.trim();
+
+    if(!name || !email || !message){
+      formStatus.textContent='Please fill in all fields before sending.';
+      return;
+    }
+
+    const subject=encodeURIComponent(`New message from ${name} via your portfolio`);
+    const body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+    formBtn.disabled=true;
+    formBtn.textContent='Opening mail app...';
+    formStatus.textContent='Preparing your message for omarnacilla@gmail.com...';
+
+    window.location.href=`mailto:omarnacilla@gmail.com?subject=${subject}&body=${body}`;
+
+    setTimeout(()=>{
+      formBtn.disabled=false;
+      formBtn.textContent='Send Message →';
+      formStatus.textContent='If the mail app did not open, email omarnacilla@gmail.com directly.';
+    },3000);
+  });
+}
 
 
 
