@@ -3793,6 +3793,77 @@ body.site-loaded{
   }
 }
 
+.success-modal{
+  position:fixed;
+  inset:0;
+  z-index:1200;
+  display:grid;
+  place-items:center;
+  padding:1.25rem;
+  background:rgba(2,8,23,.62);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .25s ease, visibility .25s ease;
+}
+.success-modal.open{
+  opacity:1;
+  visibility:visible;
+}
+.success-modal-card{
+  width:min(100%, 420px);
+  background:#fff;
+  border-radius:24px;
+  padding:2rem 1.6rem 1.5rem;
+  text-align:center;
+  box-shadow:0 28px 70px rgba(2,8,23,.24);
+  transform:translateY(12px) scale(.98);
+  transition:transform .25s ease;
+}
+.success-modal.open .success-modal-card{
+  transform:translateY(0) scale(1);
+}
+.success-icon{
+  width:72px;
+  height:72px;
+  margin:0 auto 1rem;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(135deg, #10b981, #34d399);
+  color:#fff;
+  box-shadow:0 16px 32px rgba(16,185,129,.25);
+}
+.success-icon svg{
+  width:34px;
+  height:34px;
+}
+.success-modal-card h3{
+  margin:0 0 .55rem;
+  font-family:var(--fd,'Space Grotesk',sans-serif);
+  font-size:1.35rem;
+  color:#0f172a;
+}
+.success-modal-card p{
+  margin:0 0 1.25rem;
+  color:#64748b;
+  line-height:1.7;
+}
+.success-modal-btn{
+  border:0;
+  border-radius:999px;
+  padding:.85rem 1.2rem;
+  background:linear-gradient(135deg,#1877F2,#4a9aff);
+  color:#fff;
+  font-weight:800;
+  cursor:pointer;
+  box-shadow:0 14px 28px rgba(24,119,242,.22);
+}
+.success-modal-btn:hover{
+  transform:translateY(-2px);
+}
+
 /* =========================================================
    HERO CTA RESTORE — keep body font clean but button strong
 ========================================================= */
@@ -4564,6 +4635,18 @@ footer strong{
 </div>
 </div>
 </section>
+<div class="success-modal" id="successModal" aria-hidden="true">
+  <div class="success-modal-card" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
+    <div class="success-icon">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h3 id="successModalTitle">Message sent successfully</h3>
+    <p>Thanks for reaching out. I’ll get back to you soon.</p>
+    <button class="success-modal-btn" id="successModalClose" type="button">Close</button>
+  </div>
+</div>
 <footer>
   <p>© 2026 <strong>Omar Darwish Talib Al Hosni</strong> · Designed to make an impression.</p>
 </footer>
@@ -4862,6 +4945,35 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 const contactForm=document.getElementById('contactForm');
 const formBtn=document.getElementById('formBtn');
 const formStatus=document.getElementById('formStatus');
+const successModal=document.getElementById('successModal');
+const successModalClose=document.getElementById('successModalClose');
+
+function openSuccessModal(){
+  successModal.classList.add('open');
+  successModal.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+}
+
+function closeSuccessModal(){
+  successModal.classList.remove('open');
+  successModal.setAttribute('aria-hidden','true');
+  document.body.style.overflow='';
+}
+
+if(successModalClose){
+  successModalClose.addEventListener('click', closeSuccessModal);
+}
+
+if(successModal){
+  successModal.addEventListener('click', function(e){
+    if(e.target === successModal) closeSuccessModal();
+  });
+}
+
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape' && successModal && successModal.classList.contains('open')) closeSuccessModal();
+});
+
 if(contactForm && formBtn && formStatus){
   contactForm.addEventListener('submit',async function(e){
     e.preventDefault();
@@ -4906,6 +5018,7 @@ if(contactForm && formBtn && formStatus){
 
       contactForm.reset();
       formStatus.textContent='Your message was sent successfully. Thank you!';
+      openSuccessModal();
     }catch(err){
       formStatus.textContent='The message could not be sent automatically. Please use the email link above or send directly to omarnacilla@gmail.com.';
       window.location.href=mailtoUrl;
