@@ -4872,19 +4872,24 @@ if(contactForm && formBtn && formStatus){
       return;
     }
 
-    const subject=encodeURIComponent(`New message from ${name} via your portfolio`);
-    const body=encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const subject=`New message from ${name} via your portfolio`;
+    const body=`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    const gmailUrl=`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent('omarnacilla@gmail.com')}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl=`mailto:omarnacilla@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
     formBtn.disabled=true;
-    formBtn.textContent='Opening mail app...';
-    formStatus.textContent='Preparing your message for omarnacilla@gmail.com...';
+    formBtn.textContent='Opening Gmail...';
+    formStatus.textContent='Opening Gmail to send your message...';
 
-    window.location.href=`mailto:omarnacilla@gmail.com?subject=${subject}&body=${body}`;
+    const gmailWindow=window.open(gmailUrl,'_blank','noopener,noreferrer');
+    if(!gmailWindow){
+      window.location.href=mailtoUrl;
+    }
 
     setTimeout(()=>{
       formBtn.disabled=false;
       formBtn.textContent='Send Message →';
-      formStatus.textContent='If the mail app did not open, email omarnacilla@gmail.com directly.';
+      formStatus.textContent='If Gmail did not open, use the email link above or send directly to omarnacilla@gmail.com.';
     },3000);
   });
 }
