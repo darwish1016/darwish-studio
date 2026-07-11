@@ -4551,6 +4551,9 @@ footer strong{
 </div>
 <div class="contact-form">
 <form id="contactForm">
+<input type="hidden" name="_subject" value="New message from your portfolio"/>
+<input type="hidden" name="_captcha" value="false"/>
+<input type="hidden" name="_template" value="table"/>
 <div class="fg"><label>Your Name</label><input name="name" placeholder="John Smith" type="text" required/></div>
 <div class="fg"><label>Email Address</label><input name="email" placeholder="john@company.com" type="email" required/></div>
 <div class="fg"><label>Message</label><textarea name="message" placeholder="Tell me what you need help with..." required></textarea></div>
@@ -4860,7 +4863,7 @@ const contactForm=document.getElementById('contactForm');
 const formBtn=document.getElementById('formBtn');
 const formStatus=document.getElementById('formStatus');
 if(contactForm && formBtn && formStatus){
-  contactForm.addEventListener('submit',function(e){
+  contactForm.addEventListener('submit',async function(e){
     e.preventDefault();
 
     const name=contactForm.elements.name.value.trim();
@@ -4873,24 +4876,43 @@ if(contactForm && formBtn && formStatus){
     }
 
     const subject=`New message from ${name} via your portfolio`;
-    const body=`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
-    const gmailUrl=`https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent('omarnacilla@gmail.com')}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    const mailtoUrl=`mailto:omarnacilla@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoUrl=`mailto:omarnacilla@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
 
     formBtn.disabled=true;
-    formBtn.textContent='Opening Gmail...';
-    formStatus.textContent='Opening Gmail to send your message...';
+    formBtn.textContent='Sending...';
+    formStatus.textContent='Sending your message...';
 
-    const gmailWindow=window.open(gmailUrl,'_blank','noopener,noreferrer');
-    if(!gmailWindow){
+    try{
+      const response=await fetch('https://formsubmit.co/ajax/omarnacilla@gmail.com',{
+        method:'POST',
+        headers:{
+          'Accept':'application/json',
+          'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'
+        },
+        body:new URLSearchParams({
+          name,
+          email,
+          message,
+          _subject:subject,
+          _captcha:'false',
+          _template:'table',
+          _replyto:email
+        }).toString()
+      });
+
+      if(!response.ok){
+        throw new Error('Send failed');
+      }
+
+      contactForm.reset();
+      formStatus.textContent='Your message was sent successfully. Thank you!';
+    }catch(err){
+      formStatus.textContent='The message could not be sent automatically. Please use the email link above or send directly to omarnacilla@gmail.com.';
       window.location.href=mailtoUrl;
-    }
-
-    setTimeout(()=>{
+    }finally{
       formBtn.disabled=false;
       formBtn.textContent='Send Message →';
-      formStatus.textContent='If Gmail did not open, use the email link above or send directly to omarnacilla@gmail.com.';
-    },3000);
+    }
   });
 }
 
