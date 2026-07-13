@@ -3852,7 +3852,26 @@ footer strong{
   font-weight:800!important;
 }
 
-</style>
+
+    /* CONCEPT MOCKUP PORTFOLIO CARDS */
+    .proj-live-pill--concept span {
+      background: var(--acc3);
+      box-shadow: 0 0 12px rgba(74,154,255,.9);
+    }
+
+    .proj-live-pill--concept {
+      border-color: rgba(74,154,255,.32);
+      background: rgba(5,14,32,.78);
+      color: #dbeafe;
+    }
+
+    @media (max-width: 600px) {
+      .proj-tab[data-panel="concept"] {
+        white-space: normal;
+        text-align: center;
+      }
+    }
+    </style>
 </head>
 <body>
 <canvas id="spark-canvas"></canvas>
@@ -3890,28 +3909,27 @@ footer strong{
 </div>
 <!-- HERO -->
 <section id="home">
-  <div class="hero-shell">
-    <div class="hero-copy">
-      <h1 class="hero-title">Hi! I'm <span>Darwish.</span></h1>
-      <div class="hero-highlight-box">
-        <strong>I’m a</strong>
-        <span id="typingText">WEBSITE DESIGNER</span>
-        <span class="typing-cursor">|</span>
-      </div>
-      <p class="hero-text">I help businesses grow online through modern, high-performing websites, thoughtful design, and practical digital solutions. With over 3 years of professional experience, I create digital experiences that build trust, strengthen brands, and support long-term business growth.</p>
-      <div class="hero-actions">
-        <a class="hero-cta" href="#contact">Get in touch →</a>
-        <a class="hero-link" href="#projects">See my work</a>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="hero-image-wrapper">
-        <img alt="Omar Darwish" class="hero-image" src="me.webp"/>
-      </div>
-    </div>
-  </div>
-  <div class="hero-glow"></div>
+<div class="hero-shell">
+<div class="hero-copy">
+<h1 class="hero-title">Hi! I'm <span>Darwish.</span></h1>
+<div class="hero-highlight-box">
+<strong>I’m a</strong>
+<span id="typingText">WEBSITE DESIGNER</span>
+<span class="typing-cursor">|</span>
+</div>
+<p class="hero-text">I help businesses grow online through modern, high-performing websites, thoughtful design, and practical digital solutions. With over 3 years of professional experience, I create digital experiences that build trust, strengthen brands, and support long-term business growth.</p>
+<div class="hero-actions">
+<a class="hero-cta" href="#contact">Get in touch →</a>
+<a class="hero-link" href="#projects">See my work</a>
+</div>
+</div>
+<div class="hero-visual">
+<div class="hero-image-wrapper">
+<img alt="Omar Darwish" class="hero-image" src="me.webp"/>
+</div>
+</div>
+</div>
+<div class="hero-glow"></div>
 </section>
 <!-- ABOUT -->
 <section id="about">
@@ -3966,7 +3984,6 @@ footer strong{
 <p class="svc-desc">I create clean graphics for your website, social media, and marketing.</p>
 <span class="svc-status"><span class="svc-status-dot"></span>Available now</span>
 </div></div>
-
 </div>
 <div class="svc-item">
 <div class="svc-card">
@@ -3977,7 +3994,6 @@ footer strong{
 <p class="svc-desc">I help plan and post simple content so your pages stay active.</p>
 <span class="svc-status"><span class="svc-status-dot"></span>Available now</span>
 </div></div>
-
 </div>
 <div class="svc-item">
 <div class="svc-card">
@@ -3988,7 +4004,6 @@ footer strong{
 <p class="svc-desc">I build clean WordPress and Shopify websites that are easy to use.</p>
 <span class="svc-status"><span class="svc-status-dot"></span>Available now</span>
 </div></div>
-
 </div>
 <div class="svc-item">
 <div class="svc-card">
@@ -3999,7 +4014,6 @@ footer strong{
 <p class="svc-desc">I create emails and simple automations that help you stay in touch with customers.</p>
 <span class="svc-status"><span class="svc-status-dot"></span>Available now</span>
 </div></div>
-
 </div>
 <div class="svc-item">
 <div class="svc-card">
@@ -4010,7 +4024,6 @@ footer strong{
 <p class="svc-desc">I set up small systems that save time and reduce repeated work.</p>
 <span class="svc-status"><span class="svc-status-dot"></span>Available now</span>
 </div></div>
-
 </div>
 <div class="svc-item">
 <div class="svc-card">
@@ -4021,7 +4034,6 @@ footer strong{
 <p class="svc-desc">I help with daily tasks so you can focus on the bigger work.</p>
 <span class="svc-status"><span class="svc-status-dot"></span>Available now</span>
 </div></div>
-
 </div>
 </div>
 </div>
@@ -4031,43 +4043,40 @@ footer strong{
 <div class="tools-accent-glow"></div>
 <span class="tools-orb one"></span>
 <span class="tools-orb two"></span>
-
 <div class="container tools-inner">
-  <div class="tools-header scroll-reveal">
-    <div class="tools-header-left">
-      <p class="sec-label">My Toolkit</p>
-      <h2 class="tools-big-headline">Tools I use<br/><span>every day.</span></h2>
-    </div>
-  </div>
-
-  <div class="tools-body scroll-reveal" id="toolsPanel">
-    <div class="laptop-col">
-      <div class="laptop-mockup" id="toolsLaptop">
-        <div class="laptop-screen-frame">
-          <div class="laptop-cam-row"><div class="laptop-cam-dot"></div></div>
-          <div class="laptop-screen-inner">
-            <div class="screen-chrome-bar">
-              <span class="screen-chrome-dot"></span>
-              <span class="screen-chrome-dot"></span>
-              <span class="screen-chrome-dot"></span>
-              <span class="screen-chrome-url">https://darwish.studio/daily-stack</span>
-            </div>
-            <div class="laptop-app-grid" id="laptopScreen"></div>
-          </div>
-        </div>
-        <div class="laptop-hinge"></div>
-        <div class="laptop-base"></div>
-      </div>
-      <div class="laptop-ground-shadow"></div>
-    </div>
-
-    <div class="tools-desc-col">
-      <p class="tools-desc-intro">
+<div class="tools-header scroll-reveal">
+<div class="tools-header-left">
+<p class="sec-label">My Toolkit</p>
+<h2 class="tools-big-headline">Tools I use<br/><span>every day.</span></h2>
+</div>
+</div>
+<div class="tools-body scroll-reveal" id="toolsPanel">
+<div class="laptop-col">
+<div class="laptop-mockup" id="toolsLaptop">
+<div class="laptop-screen-frame">
+<div class="laptop-cam-row"><div class="laptop-cam-dot"></div></div>
+<div class="laptop-screen-inner">
+<div class="screen-chrome-bar">
+<span class="screen-chrome-dot"></span>
+<span class="screen-chrome-dot"></span>
+<span class="screen-chrome-dot"></span>
+<span class="screen-chrome-url">https://darwish.studio/daily-stack</span>
+</div>
+<div class="laptop-app-grid" id="laptopScreen"></div>
+</div>
+</div>
+<div class="laptop-hinge"></div>
+<div class="laptop-base"></div>
+</div>
+<div class="laptop-ground-shadow"></div>
+</div>
+<div class="tools-desc-col">
+<p class="tools-desc-intro">
         These are the tools I use to <strong>design, build, organize, and support</strong> client work from anywhere.
       </p>
-      <div class="stack-groups" id="stackGroups"></div>
-    </div>
-  </div>
+<div class="stack-groups" id="stackGroups"></div>
+</div>
+</div>
 </div>
 </section>
 <!-- =============================================
@@ -4086,7 +4095,7 @@ footer strong{
 <div aria-label="Project categories" class="proj-tabs scroll-reveal" role="tablist">
 <button aria-controls="panel-web" aria-selected="true" class="proj-tab active" data-panel="web" role="tab" type="button">
   Web
-</button>
+</button><button aria-controls="panel-concept" aria-selected="false" class="proj-tab" data-panel="concept" role="tab" type="button">Concept Mockups</button>
 <button aria-controls="panel-email" aria-selected="false" class="proj-tab" data-panel="email" role="tab" type="button">
   Email
 </button>
@@ -4189,7 +4198,19 @@ footer strong{
 </div>
 </article>
 </div>
-</div>
+</div><div class="proj-panel" id="panel-concept" role="tabpanel"><div class="proj-showcase-grid"><article class="proj-card featured scroll-reveal"><a aria-label="View Seek Consciousness concept mockup" class="proj-shot-wrap" href="https://seekconsciousness.vercel.app/" rel="noopener" target="_blank"><img alt="Seek Consciousness concept website preview" class="proj-shot" loading="lazy" src="https://api.microlink.io?url=https://seekconsciousness.vercel.app/&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url"/><div class="proj-live-pill proj-live-pill--concept"><span></span> Concept Mockup</div></a><div class="proj-info-card"><p class="proj-kicker">Concept Website</p><h3>Seek Consciousness</h3><p class="proj-desc">I created an immersive spiritual growth concept website that organises teachings, practices, and reflective content into a clear, visually engaging journey.</p><div aria-label="Project technologies" class="proj-tags"><span class="proj-tag">Immersive Design</span><span class="proj-tag">Content Structure</span><span class="proj-tag">Responsive</span></div><a class="proj-view" href="https://seekconsciousness.vercel.app/" rel="noopener" target="_blank">View Concept <span aria-hidden="true" class="arrow">
+<svg fill="none" viewbox="0 0 11 11">
+<path d="M1.5 9.5L9.5 1.5M9.5 1.5H3.5M9.5 1.5V7.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</span></a></div></article><article class="proj-card scroll-reveal"><a aria-label="View B&amp;K Express concept mockup" class="proj-shot-wrap" href="https://bkexpress.vercel.app/" rel="noopener" target="_blank"><img alt="B&amp;K Express concept website preview" class="proj-shot" loading="lazy" src="https://api.microlink.io?url=https://bkexpress.vercel.app/&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url"/><div class="proj-live-pill proj-live-pill--concept"><span></span> Concept Mockup</div></a><div class="proj-info-card"><p class="proj-kicker">Concept Website</p><h3>B&amp;K Express</h3><p class="proj-desc">I designed a trust-focused freight and logistics concept website with clear service presentation, strong calls to action, and a streamlined quote experience.</p><div aria-label="Project technologies" class="proj-tags"><span class="proj-tag">Logistics</span><span class="proj-tag">Lead Generation</span><span class="proj-tag">Responsive</span></div><a class="proj-view" href="https://bkexpress.vercel.app/" rel="noopener" target="_blank">View Concept <span aria-hidden="true" class="arrow">
+<svg fill="none" viewbox="0 0 11 11">
+<path d="M1.5 9.5L9.5 1.5M9.5 1.5H3.5M9.5 1.5V7.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</span></a></div></article><article class="proj-card scroll-reveal"><a aria-label="View All Too Social concept mockup" class="proj-shot-wrap" href="https://alltoosocial.vercel.app/" rel="noopener" target="_blank"><img alt="All Too Social concept website preview" class="proj-shot" loading="lazy" src="https://api.microlink.io?url=https://alltoosocial.vercel.app/&amp;screenshot=true&amp;meta=false&amp;embed=screenshot.url"/><div class="proj-live-pill proj-live-pill--concept"><span></span> Concept Mockup</div></a><div class="proj-info-card"><p class="proj-kicker">Concept Website</p><h3>All Too Social</h3><p class="proj-desc">I created a bold social media studio concept website with an editorial layout, dynamic service storytelling, and a confident creative-agency feel.</p><div aria-label="Project technologies" class="proj-tags"><span class="proj-tag">Creative Agency</span><span class="proj-tag">Editorial UI</span><span class="proj-tag">Animation</span></div><a class="proj-view" href="https://alltoosocial.vercel.app/" rel="noopener" target="_blank">View Concept <span aria-hidden="true" class="arrow">
+<svg fill="none" viewbox="0 0 11 11">
+<path d="M1.5 9.5L9.5 1.5M9.5 1.5H3.5M9.5 1.5V7.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+</svg>
+</span></a></div></article></div></div>
 <div class="proj-panel" id="panel-email" role="tabpanel">
 <div class="proj-showcase-grid">
 <article class="proj-card scroll-reveal">
@@ -4223,10 +4244,10 @@ footer strong{
 <h3>Website Banners</h3>
 </div>
 <div aria-label="Website Banners image gallery" class="graphic-grid">
-<button class="graphic-item" data-gallery-item data-gallery-src="Gios/websitebanner1.png" data-gallery-alt="Website banner 1" type="button">
+<button class="graphic-item" data-gallery-alt="Website banner 1" data-gallery-item="" data-gallery-src="Gios/websitebanner1.png" type="button">
 <img alt="Website banner 1" loading="lazy" src="Gios/websitebanner1.png"/>
 </button>
-<button class="graphic-item" data-gallery-item data-gallery-src="Gios/websitebanner2.png" data-gallery-alt="Website banner 2" type="button">
+<button class="graphic-item" data-gallery-alt="Website banner 2" data-gallery-item="" data-gallery-src="Gios/websitebanner2.png" type="button">
 <img alt="Website banner 2" loading="lazy" src="Gios/websitebanner2.png"/>
 </button>
 </div>
@@ -4237,16 +4258,16 @@ footer strong{
 <h3>Graphic Design Collection</h3>
 </div>
 <div aria-label="Gios photo gallery" class="graphic-grid">
-<button class="graphic-item" data-gallery-item data-gallery-src="Gios/gios4.jpg" data-gallery-alt="Gios graphic design image 4" type="button">
+<button class="graphic-item" data-gallery-alt="Gios graphic design image 4" data-gallery-item="" data-gallery-src="Gios/gios4.jpg" type="button">
 <img alt="Gios graphic design image 4" loading="lazy" src="Gios/gios4.jpg"/>
 </button>
-<button class="graphic-item" data-gallery-item data-gallery-src="Gios/gios1.jpg" data-gallery-alt="Gios graphic design image 1" type="button">
+<button class="graphic-item" data-gallery-alt="Gios graphic design image 1" data-gallery-item="" data-gallery-src="Gios/gios1.jpg" type="button">
 <img alt="Gios graphic design image 1" loading="lazy" src="Gios/gios1.jpg"/>
 </button>
-<button class="graphic-item" data-gallery-item data-gallery-src="Gios/gios2.jpg" data-gallery-alt="Gios graphic design image 2" type="button">
+<button class="graphic-item" data-gallery-alt="Gios graphic design image 2" data-gallery-item="" data-gallery-src="Gios/gios2.jpg" type="button">
 <img alt="Gios graphic design image 2" loading="lazy" src="Gios/gios2.jpg"/>
 </button>
-<button class="graphic-item" data-gallery-item data-gallery-src="Gios/gios3.jpg" data-gallery-alt="Gios graphic design image 3" type="button">
+<button class="graphic-item" data-gallery-alt="Gios graphic design image 3" data-gallery-item="" data-gallery-src="Gios/gios3.jpg" type="button">
 <img alt="Gios graphic design image 3" loading="lazy" src="Gios/gios3.jpg"/>
 </button>
 </div>
@@ -4257,16 +4278,16 @@ footer strong{
 <h3>Levels IT</h3>
 </div>
 <div aria-label="Levels IT image gallery" class="levels-gallery">
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/1.png" data-gallery-alt="Levels IT image 1" type="button"><img alt="Levels IT image 1" loading="lazy" src="FOR ALL YOUR IT NEEDS/1.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/2.png" data-gallery-alt="Levels IT image 2" type="button"><img alt="Levels IT image 2" loading="lazy" src="FOR ALL YOUR IT NEEDS/2.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/3.png" data-gallery-alt="Levels IT image 3" type="button"><img alt="Levels IT image 3" loading="lazy" src="FOR ALL YOUR IT NEEDS/3.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/4.png" data-gallery-alt="Levels IT image 4" type="button"><img alt="Levels IT image 4" loading="lazy" src="FOR ALL YOUR IT NEEDS/4.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/5.png" data-gallery-alt="Levels IT image 5" type="button"><img alt="Levels IT image 5" loading="lazy" src="FOR ALL YOUR IT NEEDS/5.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/6.png" data-gallery-alt="Levels IT image 6" type="button"><img alt="Levels IT image 6" loading="lazy" src="FOR ALL YOUR IT NEEDS/6.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/7.png" data-gallery-alt="Levels IT image 7" type="button"><img alt="Levels IT image 7" loading="lazy" src="FOR ALL YOUR IT NEEDS/7.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/8.png" data-gallery-alt="Levels IT image 8" type="button"><img alt="Levels IT image 8" loading="lazy" src="FOR ALL YOUR IT NEEDS/8.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/9.png" data-gallery-alt="Levels IT image 9" type="button"><img alt="Levels IT image 9" loading="lazy" src="FOR ALL YOUR IT NEEDS/9.png"/></button>
-<button class="graphic-item" data-gallery-item data-gallery-src="FOR ALL YOUR IT NEEDS/10.png" data-gallery-alt="Levels IT image 10" type="button"><img alt="Levels IT image 10" loading="lazy" src="FOR ALL YOUR IT NEEDS/10.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 1" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/1.png" type="button"><img alt="Levels IT image 1" loading="lazy" src="FOR ALL YOUR IT NEEDS/1.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 2" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/2.png" type="button"><img alt="Levels IT image 2" loading="lazy" src="FOR ALL YOUR IT NEEDS/2.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 3" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/3.png" type="button"><img alt="Levels IT image 3" loading="lazy" src="FOR ALL YOUR IT NEEDS/3.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 4" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/4.png" type="button"><img alt="Levels IT image 4" loading="lazy" src="FOR ALL YOUR IT NEEDS/4.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 5" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/5.png" type="button"><img alt="Levels IT image 5" loading="lazy" src="FOR ALL YOUR IT NEEDS/5.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 6" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/6.png" type="button"><img alt="Levels IT image 6" loading="lazy" src="FOR ALL YOUR IT NEEDS/6.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 7" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/7.png" type="button"><img alt="Levels IT image 7" loading="lazy" src="FOR ALL YOUR IT NEEDS/7.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 8" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/8.png" type="button"><img alt="Levels IT image 8" loading="lazy" src="FOR ALL YOUR IT NEEDS/8.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 9" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/9.png" type="button"><img alt="Levels IT image 9" loading="lazy" src="FOR ALL YOUR IT NEEDS/9.png"/></button>
+<button class="graphic-item" data-gallery-alt="Levels IT image 10" data-gallery-item="" data-gallery-src="FOR ALL YOUR IT NEEDS/10.png" type="button"><img alt="Levels IT image 10" loading="lazy" src="FOR ALL YOUR IT NEEDS/10.png"/></button>
 </div>
 </div>
 </div>
@@ -4298,221 +4319,206 @@ footer strong{
 </div>
 </div>
 </div>
-</div>
+
 </section>
-<div aria-hidden="true" class="graphic-modal" data-gallery-modal>
-<div class="graphic-modal-dialog" role="dialog" aria-modal="true" aria-label="Full size image preview">
-<button aria-label="Close image preview" class="graphic-modal-close" data-gallery-close type="button">×</button>
+<div aria-hidden="true" class="graphic-modal" data-gallery-modal="">
+<div aria-label="Full size image preview" aria-modal="true" class="graphic-modal-dialog" role="dialog">
+<button aria-label="Close image preview" class="graphic-modal-close" data-gallery-close="" type="button">×</button>
 <figure class="graphic-modal-media">
-<img alt="" data-gallery-modal-img src=""/>
+<img alt="" data-gallery-modal-img="" src=""/>
 </figure>
 <div class="graphic-modal-caption">
-<span data-gallery-modal-title></span>
+<span data-gallery-modal-title=""></span>
 <span>Click outside or press Esc to close</span>
 </div>
 </div>
 </div>
 <!-- EXPERIENCE -->
 <section id="experience">
-  <div class="container">
-    <div class="exp-system-head scroll-reveal">
-      <div>
-        <p class="sec-label">Experience</p>
-        <h2 class="exp-system-title">My work experience in <span>websites, admin, and systems.</span></h2>
-      </div>
-    </div>
-
-    <div class="exp-system-list">
-
-      <article class="exp-slab scroll-reveal">
-        <div class="exp-index">01</div>
-        <div class="exp-main">
-          <div class="exp-date-line">Dec 2024 — Nov 2025</div>
-          <h3 class="exp-role">General Admin Virtual Assistant</h3>
-          <div class="exp-company-line">
-            <strong>Dove Press Publishing Ltd.</strong>
-            <span class="exp-location-mark">UK · Full-time Remote</span>
-          </div>
-          <p class="exp-desc">I helped with email, project tasks, social posts, simple automations, email campaigns, and lead research. I supported a <span class="exp-highlight">12-month</span> remote work cycle and helped make repeated admin tasks up to <span class="exp-highlight">80% faster</span>.</p>
-          <div class="exp-tech-line">
-            <span>Email Management</span>
-            <span>Project Management</span>
-            <span>Workflow Automation</span>
-            <span>Lead Generation</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp-slab scroll-reveal">
-        <div class="exp-index">02</div>
-        <div class="exp-main">
-          <div class="exp-date-line">Nov 2025 — May 2026</div>
-          <h3 class="exp-role">Freelance Web Developer &amp; Designer</h3>
-          <div class="exp-company-line">
-            <strong>Levels IT</strong>
-            <span class="exp-location-mark">Australia · Full-time Remote</span>
-          </div>
-          <p class="exp-desc">I worked with Levels IT on websites, SEO, email, social media, and client projects. I helped launch <span class="exp-highlight">4+ live websites</span> and helped improve digital visibility by <span class="exp-highlight">80%+</span>.</p>
-          <div class="exp-tech-line">
-            <span>Web Design</span>
-            <span>Web Development</span>
-            <span>SEO</span>
-            <span>E-commerce</span>
-            <span>Email Marketing</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="exp-slab scroll-reveal">
-        <div class="exp-index">03</div>
-        <div class="exp-main">
-          <div class="exp-date-line">Jan 2026 — Jun 2026</div>
-          <h3 class="exp-role">Main Web Developer / Software Developer Intern</h3>
-          <div class="exp-company-line">
-            <strong>LGU General Santos City — HRMDO</strong>
-            <span class="exp-location-mark">Philippines · Full-time Internship</span>
-          </div>
-          <p class="exp-desc">I built a web-based Performance Management System using PHP, CodeIgniter 4, HTML, CSS, and JavaScript. It helped move the SPMS process from spreadsheets into one online system, reduced manual work by <span class="exp-highlight">90%+</span>, and made <span class="exp-highlight">100+ personnel records</span> easier to manage.</p>
-          <div class="exp-tech-line">
-            <span>PHP</span>
-            <span>CodeIgniter 4</span>
-            <span>JavaScript</span>
-            <span>Database Architecture</span>
-            <span>System Automation</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-  </div>
+<div class="container">
+<div class="exp-system-head scroll-reveal">
+<div>
+<p class="sec-label">Experience</p>
+<h2 class="exp-system-title">My work experience in <span>websites, admin, and systems.</span></h2>
+</div>
+</div>
+<div class="exp-system-list">
+<article class="exp-slab scroll-reveal">
+<div class="exp-index">01</div>
+<div class="exp-main">
+<div class="exp-date-line">Dec 2024 — Nov 2025</div>
+<h3 class="exp-role">General Admin Virtual Assistant</h3>
+<div class="exp-company-line">
+<strong>Dove Press Publishing Ltd.</strong>
+<span class="exp-location-mark">UK · Full-time Remote</span>
+</div>
+<p class="exp-desc">I helped with email, project tasks, social posts, simple automations, email campaigns, and lead research. I supported a <span class="exp-highlight">12-month</span> remote work cycle and helped make repeated admin tasks up to <span class="exp-highlight">80% faster</span>.</p>
+<div class="exp-tech-line">
+<span>Email Management</span>
+<span>Project Management</span>
+<span>Workflow Automation</span>
+<span>Lead Generation</span>
+</div>
+</div>
+</article>
+<article class="exp-slab scroll-reveal">
+<div class="exp-index">02</div>
+<div class="exp-main">
+<div class="exp-date-line">Nov 2025 — May 2026</div>
+<h3 class="exp-role">Freelance Web Developer &amp; Designer</h3>
+<div class="exp-company-line">
+<strong>Levels IT</strong>
+<span class="exp-location-mark">Australia · Full-time Remote</span>
+</div>
+<p class="exp-desc">I worked with Levels IT on websites, SEO, email, social media, and client projects. I helped launch <span class="exp-highlight">4+ live websites</span> and helped improve digital visibility by <span class="exp-highlight">80%+</span>.</p>
+<div class="exp-tech-line">
+<span>Web Design</span>
+<span>Web Development</span>
+<span>SEO</span>
+<span>E-commerce</span>
+<span>Email Marketing</span>
+</div>
+</div>
+</article>
+<article class="exp-slab scroll-reveal">
+<div class="exp-index">03</div>
+<div class="exp-main">
+<div class="exp-date-line">Jan 2026 — Jun 2026</div>
+<h3 class="exp-role">Main Web Developer / Software Developer Intern</h3>
+<div class="exp-company-line">
+<strong>LGU General Santos City — HRMDO</strong>
+<span class="exp-location-mark">Philippines · Full-time Internship</span>
+</div>
+<p class="exp-desc">I built a web-based Performance Management System using PHP, CodeIgniter 4, HTML, CSS, and JavaScript. It helped move the SPMS process from spreadsheets into one online system, reduced manual work by <span class="exp-highlight">90%+</span>, and made <span class="exp-highlight">100+ personnel records</span> easier to manage.</p>
+<div class="exp-tech-line">
+<span>PHP</span>
+<span>CodeIgniter 4</span>
+<span>JavaScript</span>
+<span>Database Architecture</span>
+<span>System Automation</span>
+</div>
+</div>
+</article>
+</div>
+</div>
 </section>
-
 <!-- TESTIMONIALS -->
 <section id="testimonials">
-  <div class="container">
-    <div class="testimonials-head scroll-reveal">
-      <p class="sec-label">Testimonials</p>
-      <h2 class="testimonials-title">What <span>clients say.</span></h2>
-    </div>
-
-    <div class="tm-carousel scroll-reveal" aria-label="Client testimonials carousel">
-      <div class="tm-carousel-window">
-        <div class="tm-carousel-track" id="testimonialTrack">
-          <article class="tm-slide">
-            <div class="tm-testimonial-card">
-              <div class="tm-card-head">
-                <div class="tm-avatar">D</div>
-                <div class="tm-card-meta">
-                  <strong>Daniel</strong>
-                  <span>Dove Press Publishing Ltd</span>
-                </div>
-              </div>
-              <p class="tm-quote">Omar helped me stay on top of the daily work. He was reliable, organized, and careful with the details.</p>
-              <span class="tm-card-glow"></span>
-            </div>
-          </article>
-
-          <article class="tm-slide">
-            <div class="tm-testimonial-card">
-              <div class="tm-card-head">
-                <div class="tm-avatar">S</div>
-                <div class="tm-card-meta">
-                  <strong>Steven</strong>
-                  <span>Levels IT</span>
-                </div>
-              </div>
-              <p class="tm-quote">Omar is easy to work with and quick to understand what we need. He helped make our website and marketing look much cleaner.</p>
-              <span class="tm-card-glow"></span>
-            </div>
-          </article>
-
-          <article class="tm-slide">
-            <div class="tm-testimonial-card">
-              <div class="tm-card-head">
-                <div class="tm-avatar">J</div>
-                <div class="tm-card-meta">
-                  <strong>Jim</strong>
-                  <span>Homelend</span>
-                </div>
-              </div>
-              <p class="tm-quote">Omar listened to what we wanted and turned it into a clear website. The final result was simple and easy for clients to understand.</p>
-              <span class="tm-card-glow"></span>
-            </div>
-          </article>
-
-          <article class="tm-slide">
-            <div class="tm-testimonial-card">
-              <div class="tm-card-head">
-                <div class="tm-avatar">J</div>
-                <div class="tm-card-meta">
-                  <strong>Jessica</strong>
-                  <span>Ignite Training</span>
-                </div>
-              </div>
-              <p class="tm-quote">Omar helped bring our ideas together. The design felt clean, professional, and easy to use.</p>
-              <span class="tm-card-glow"></span>
-            </div>
-          </article>
-
-          <article class="tm-slide">
-            <div class="tm-testimonial-card">
-              <div class="tm-card-head">
-                <div class="tm-avatar">B</div>
-                <div class="tm-card-meta">
-                  <strong>Brad</strong>
-                  <span>Callaughan Partners</span>
-                </div>
-              </div>
-              <p class="tm-quote">Omar understood the style we wanted and handled the updates with care. He helped make the website feel more polished.</p>
-              <span class="tm-card-glow"></span>
-            </div>
-          </article>
-
-          <article class="tm-slide">
-            <div class="tm-testimonial-card">
-              <div class="tm-card-head">
-                <div class="tm-avatar">RD</div>
-                <div class="tm-card-meta">
-                  <strong>Rexon &amp; Drexler</strong>
-                  <span>HRMDO LGU-GSC</span>
-                </div>
-              </div>
-              <p class="tm-quote">Omar helped us build a system that made our workflow easier to follow. He was patient, focused, and committed to the work.</p>
-              <span class="tm-card-glow"></span>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <div class="tm-carousel-controls" aria-label="Testimonial carousel controls">
-        <button class="tm-arrow" type="button" id="testimonialPrev" aria-label="Previous testimonial">‹</button>
-        <div class="tm-dots" id="testimonialDots" aria-label="Testimonial slides"></div>
-        <button class="tm-arrow" type="button" id="testimonialNext" aria-label="Next testimonial">›</button>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="testimonials-head scroll-reveal">
+<p class="sec-label">Testimonials</p>
+<h2 class="testimonials-title">What <span>clients say.</span></h2>
+</div>
+<div aria-label="Client testimonials carousel" class="tm-carousel scroll-reveal">
+<div class="tm-carousel-window">
+<div class="tm-carousel-track" id="testimonialTrack">
+<article class="tm-slide">
+<div class="tm-testimonial-card">
+<div class="tm-card-head">
+<div class="tm-avatar">D</div>
+<div class="tm-card-meta">
+<strong>Daniel</strong>
+<span>Dove Press Publishing Ltd</span>
+</div>
+</div>
+<p class="tm-quote">Omar helped me stay on top of the daily work. He was reliable, organized, and careful with the details.</p>
+<span class="tm-card-glow"></span>
+</div>
+</article>
+<article class="tm-slide">
+<div class="tm-testimonial-card">
+<div class="tm-card-head">
+<div class="tm-avatar">S</div>
+<div class="tm-card-meta">
+<strong>Steven</strong>
+<span>Levels IT</span>
+</div>
+</div>
+<p class="tm-quote">Omar is easy to work with and quick to understand what we need. He helped make our website and marketing look much cleaner.</p>
+<span class="tm-card-glow"></span>
+</div>
+</article>
+<article class="tm-slide">
+<div class="tm-testimonial-card">
+<div class="tm-card-head">
+<div class="tm-avatar">J</div>
+<div class="tm-card-meta">
+<strong>Jim</strong>
+<span>Homelend</span>
+</div>
+</div>
+<p class="tm-quote">Omar listened to what we wanted and turned it into a clear website. The final result was simple and easy for clients to understand.</p>
+<span class="tm-card-glow"></span>
+</div>
+</article>
+<article class="tm-slide">
+<div class="tm-testimonial-card">
+<div class="tm-card-head">
+<div class="tm-avatar">J</div>
+<div class="tm-card-meta">
+<strong>Jessica</strong>
+<span>Ignite Training</span>
+</div>
+</div>
+<p class="tm-quote">Omar helped bring our ideas together. The design felt clean, professional, and easy to use.</p>
+<span class="tm-card-glow"></span>
+</div>
+</article>
+<article class="tm-slide">
+<div class="tm-testimonial-card">
+<div class="tm-card-head">
+<div class="tm-avatar">B</div>
+<div class="tm-card-meta">
+<strong>Brad</strong>
+<span>Callaughan Partners</span>
+</div>
+</div>
+<p class="tm-quote">Omar understood the style we wanted and handled the updates with care. He helped make the website feel more polished.</p>
+<span class="tm-card-glow"></span>
+</div>
+</article>
+<article class="tm-slide">
+<div class="tm-testimonial-card">
+<div class="tm-card-head">
+<div class="tm-avatar">RD</div>
+<div class="tm-card-meta">
+<strong>Rexon &amp; Drexler</strong>
+<span>HRMDO LGU-GSC</span>
+</div>
+</div>
+<p class="tm-quote">Omar helped us build a system that made our workflow easier to follow. He was patient, focused, and committed to the work.</p>
+<span class="tm-card-glow"></span>
+</div>
+</article>
+</div>
+</div>
+<div aria-label="Testimonial carousel controls" class="tm-carousel-controls">
+<button aria-label="Previous testimonial" class="tm-arrow" id="testimonialPrev" type="button">‹</button>
+<div aria-label="Testimonial slides" class="tm-dots" id="testimonialDots"></div>
+<button aria-label="Next testimonial" class="tm-arrow" id="testimonialNext" type="button">›</button>
+</div>
+</div>
+</div>
 </section>
 <!-- CV -->
 <section id="cv">
-  <div class="cv-shell">
-    <div class="cv-banner scroll-reveal">
-      <div class="cv-content">
-        <h2 class="cv-title">
+<div class="cv-shell">
+<div class="cv-banner scroll-reveal">
+<div class="cv-content">
+<h2 class="cv-title">
           See the full story behind my <span>digital work.</span>
-        </h2>
-
-        <p class="cv-short-desc">
+</h2>
+<p class="cv-short-desc">
           A simple copy of my experience, skills, tools, and projects.
         </p>
-
-        <div class="cv-actions">
-          <a class="cv-btn-primary" download href="CURRICULUM-VITAE-AL HOSNI.pdf">
+<div class="cv-actions">
+<a class="cv-btn-primary" download="" href="CURRICULUM-VITAE-AL HOSNI.pdf">
             Download CV →
           </a>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <!-- CONTACT -->
 <section id="contact">
@@ -4535,33 +4541,33 @@ footer strong{
 </div>
 <div class="contact-form">
 <form id="contactForm">
-<input type="hidden" name="_subject" value="New message from your portfolio"/>
-<input type="hidden" name="_captcha" value="false"/>
-<input type="hidden" name="_template" value="table"/>
-<div class="fg"><label>Your Name</label><input name="name" placeholder="John Smith" type="text" required/></div>
-<div class="fg"><label>Email Address</label><input name="email" placeholder="john@company.com" type="email" required/></div>
-<div class="fg"><label>Message</label><textarea name="message" placeholder="Tell me what you need help with..." required></textarea></div>
+<input name="_subject" type="hidden" value="New message from your portfolio"/>
+<input name="_captcha" type="hidden" value="false"/>
+<input name="_template" type="hidden" value="table"/>
+<div class="fg"><label>Your Name</label><input name="name" placeholder="John Smith" required="" type="text"/></div>
+<div class="fg"><label>Email Address</label><input name="email" placeholder="john@company.com" required="" type="email"/></div>
+<div class="fg"><label>Message</label><textarea name="message" placeholder="Tell me what you need help with..." required=""></textarea></div>
 <button class="form-btn" id="formBtn" type="submit">Send Message →</button>
-<p class="form-status" id="formStatus" aria-live="polite"></p>
+<p aria-live="polite" class="form-status" id="formStatus"></p>
 </form>
 </div>
 </div>
 </div>
 </section>
-<div class="success-modal" id="successModal" aria-hidden="true">
-  <div class="success-modal-card" role="dialog" aria-modal="true" aria-labelledby="successModalTitle">
-    <div class="success-icon">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <h3 id="successModalTitle">Message sent successfully</h3>
-    <p>Thanks for reaching out. I’ll get back to you soon.</p>
-    <button class="success-modal-btn" id="successModalClose" type="button">Close</button>
-  </div>
+<div aria-hidden="true" class="success-modal" id="successModal">
+<div aria-labelledby="successModalTitle" aria-modal="true" class="success-modal-card" role="dialog">
+<div class="success-icon">
+<svg aria-hidden="true" fill="none" viewbox="0 0 24 24">
+<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2"></path>
+</svg>
+</div>
+<h3 id="successModalTitle">Message sent successfully</h3>
+<p>Thanks for reaching out. I’ll get back to you soon.</p>
+<button class="success-modal-btn" id="successModalClose" type="button">Close</button>
+</div>
 </div>
 <footer>
-  <p>© 2026 <strong>Omar Darwish Talib Al Hosni</strong> · Designed to make an impression.</p>
+<p>© 2026 <strong>Omar Darwish Talib Al Hosni</strong> · Designed to make an impression.</p>
 </footer>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script>
