@@ -2841,9 +2841,232 @@ section,
     height:320px !important;
   }
 }
+
+/* ==========================================================
+   MOBILE HERO FIX V2
+   Removes the huge empty gap and makes the portrait dominant.
+========================================================== */
+@media(max-width:700px){
+  .studio-hero{
+    height:100svh !important;
+    min-height:100svh !important;
+    padding-top:64px !important;
+    overflow:hidden !important;
+  }
+
+  .studio-hero__inner{
+    width:calc(100% - 28px) !important;
+    height:calc(100svh - 64px) !important;
+    margin:0 auto !important;
+  }
+
+  .studio-hero__stage,
+  .studio-hero__stage--refined{
+    position:relative !important;
+    width:100% !important;
+    height:100% !important;
+    display:block !important;
+    padding:0 !important;
+    overflow:hidden !important;
+  }
+
+  .studio-hero__headline-wrap{
+    position:relative !important;
+    z-index:10 !important;
+    width:100% !important;
+    padding:30px 0 0 !important;
+  }
+
+  .studio-hero__stage--refined .studio-headline,
+  .studio-headline{
+    width:100% !important;
+    max-width:none !important;
+    margin:0 !important;
+    font-size:clamp(34px,10.4vw,44px) !important;
+    line-height:.80 !important;
+    letter-spacing:-.065em !important;
+  }
+
+  .studio-headline span{
+    display:block !important;
+    white-space:nowrap !important;
+  }
+
+  .studio-hero__typing{
+    width:min(100%,340px) !important;
+    min-height:44px !important;
+    margin-top:16px !important;
+    display:block !important;
+    white-space:normal !important;
+    font-size:clamp(12px,3.25vw,14px) !important;
+    line-height:1.42 !important;
+  }
+
+  .studio-hero__typing-prefix,
+  .hero-text-type{
+    display:inline !important;
+  }
+
+  .hero-text-type,
+  .hero-text-type .text-type__content{
+    white-space:normal !important;
+  }
+
+  .hero-text-type .text-type__cursor{
+    display:inline-block !important;
+    position:relative !important;
+    top:.04em !important;
+    margin-left:.12em !important;
+  }
+
+  .studio-hero__ctas{
+    position:relative !important;
+    z-index:12 !important;
+    margin-top:15px !important;
+    display:flex !important;
+    flex-wrap:nowrap !important;
+    gap:9px !important;
+  }
+
+  .studio-hero__cta{
+    min-height:42px !important;
+    padding:0 16px !important;
+    border-radius:999px !important;
+    font-size:10px !important;
+  }
+
+  /* Large cutout portrait: closer to the text, no giant empty area. */
+  .studio-hero__portrait--refined{
+    position:absolute !important;
+    z-index:4 !important;
+    right:-36px !important;
+    bottom:-6px !important;
+    width:clamp(285px,86vw,365px) !important;
+    height:clamp(430px,64svh,560px) !important;
+    margin:0 !important;
+    display:block !important;
+    overflow:visible !important;
+  }
+
+  .studio-portrait-shell,
+  .studio-portrait-frame,
+  .studio-hero__portrait-image{
+    width:100% !important;
+    height:100% !important;
+    overflow:visible !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  .studio-hero__portrait-image img{
+    width:138% !important;
+    height:138% !important;
+    max-width:none !important;
+    object-fit:contain !important;
+    object-position:center bottom !important;
+    transform:translate(-14%, -9%) !important;
+    filter:drop-shadow(0 24px 30px rgba(7,17,31,.16)) !important;
+  }
+
+  .studio-hero__portrait--refined:hover .studio-hero__portrait-image img{
+    transform:translate(-14%, -9%) !important;
+  }
+
+  .site-header .nav{
+    min-height:64px !important;
+    padding-inline:14px !important;
+  }
+
+  .site-header .brand-copy strong{
+    font-size:11px !important;
+  }
+
+  .site-header .brand-copy small{
+    font-size:6px !important;
+    letter-spacing:.08em !important;
+    white-space:nowrap !important;
+  }
+
+  .site-header .brand-mark{
+    width:34px !important;
+    height:34px !important;
+  }
+
+  .site-header .menu-toggle{
+    width:38px !important;
+    height:38px !important;
+  }
+}
+
+/* Narrow phones */
+@media(max-width:390px){
+  .studio-hero__headline-wrap{
+    padding-top:24px !important;
+  }
+
+  .studio-hero__stage--refined .studio-headline,
+  .studio-headline{
+    font-size:clamp(31px,10.1vw,39px) !important;
+  }
+
+  .studio-hero__typing{
+    width:280px !important;
+    font-size:11px !important;
+  }
+
+  .studio-hero__cta{
+    min-height:40px !important;
+    padding:0 13px !important;
+    font-size:9px !important;
+  }
+
+  .studio-hero__portrait--refined{
+    right:-42px !important;
+    width:300px !important;
+    height:470px !important;
+  }
+
+  .studio-hero__portrait-image img{
+    width:142% !important;
+    height:142% !important;
+    transform:translate(-16%, -10%) !important;
+  }
+}
+
+/* Short phones */
+@media(max-width:700px) and (max-height:700px){
+  .studio-hero__headline-wrap{
+    padding-top:20px !important;
+  }
+
+  .studio-hero__stage--refined .studio-headline,
+  .studio-headline{
+    font-size:clamp(29px,9.2vw,37px) !important;
+  }
+
+  .studio-hero__typing{
+    min-height:38px !important;
+    margin-top:10px !important;
+    font-size:10.5px !important;
+  }
+
+  .studio-hero__ctas{
+    margin-top:10px !important;
+  }
+
+  .studio-hero__cta{
+    min-height:36px !important;
+  }
+
+  .studio-hero__portrait--refined{
+    width:280px !important;
+    height:410px !important;
+  }
+}
 </style>
 </head>
-<body data-about="blueprint-portrait" data-about-content="simplified" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-arrow="removed" data-hero-art="removed" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-hero="rebuilt" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-refinement="hero-about-v2" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned">
+<body data-about="blueprint-portrait" data-about-content="simplified" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-arrow="removed" data-hero-art="removed" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-hero="fixed-v2" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-refinement="hero-about-v2" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned">
 <header class="site-header hero-mode">
 <div class="container nav">
 <a aria-label="Omar Darwish home" class="brand" href="#home">
