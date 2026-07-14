@@ -7315,6 +7315,213 @@ p{font-size:var(--ui-body-size);line-height:1.72}
     margin-bottom:10px !important;
   }
 }
+
+
+/* ==========================================================
+   FINAL MOBILE/TABLET HERO FIX — NO TEXT / me.webp OVERLAP
+   This block is intentionally last so it overrides the older
+   experimental hero media queries above.
+========================================================== */
+@media (max-width:820px){
+  .studio-hero{
+    height:auto !important;
+    min-height:0 !important;
+    padding:74px 0 0 !important;
+    overflow:visible !important;
+  }
+
+  .studio-hero__inner{
+    width:min(100% - 32px,760px) !important;
+    height:auto !important;
+    min-height:0 !important;
+    margin-inline:auto !important;
+    display:block !important;
+  }
+
+  .studio-hero__stage,
+  .studio-hero__stage--refined{
+    position:relative !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:0 !important;
+    padding:28px 0 44px !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    gap:0 !important;
+    overflow:visible !important;
+  }
+
+  /* Put me.webp in normal document flow so it cannot sit behind text. */
+  .studio-hero__portrait--refined{
+    position:relative !important;
+    inset:auto !important;
+    order:1 !important;
+    flex:0 0 auto !important;
+    width:clamp(230px,44vw,340px) !important;
+    height:clamp(275px,52vw,405px) !important;
+    margin:0 auto 20px !important;
+    display:block !important;
+    overflow:visible !important;
+  }
+
+  .studio-portrait-shell,
+  .studio-portrait-frame,
+  .studio-hero__portrait-image{
+    position:relative !important;
+    width:100% !important;
+    height:100% !important;
+    min-height:0 !important;
+    display:flex !important;
+    align-items:flex-end !important;
+    justify-content:center !important;
+    overflow:visible !important;
+    border:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
+    transform:none !important;
+  }
+
+  .studio-hero__portrait-image img{
+    position:relative !important;
+    inset:auto !important;
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    object-fit:contain !important;
+    object-position:center bottom !important;
+    margin:0 auto !important;
+    transform:none !important;
+    filter:drop-shadow(0 20px 25px rgba(7,17,31,.15)) !important;
+  }
+
+  .studio-hero__portrait--refined:hover .studio-hero__portrait-image img{
+    transform:none !important;
+  }
+
+  /* Text starts below the completed image box. */
+  .studio-hero__headline-wrap{
+    position:relative !important;
+    inset:auto !important;
+    z-index:3 !important;
+    order:2 !important;
+    width:100% !important;
+    max-width:620px !important;
+    margin:0 auto !important;
+    padding:0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    text-align:center !important;
+    transform:none !important;
+  }
+
+  .studio-hero__main-heading{
+    width:100% !important;
+    margin:0 !important;
+    font-size:clamp(40px,8vw,64px) !important;
+    line-height:.94 !important;
+    letter-spacing:-.055em !important;
+    text-align:center !important;
+  }
+
+  .studio-hero__typing-line{
+    width:100% !important;
+    max-width:520px !important;
+    min-height:0 !important;
+    margin:12px auto 0 !important;
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:3px !important;
+    text-align:center !important;
+  }
+
+  .studio-hero__typing-line .hero-text-type{
+    width:100% !important;
+    min-height:1.35em !important;
+    justify-content:center !important;
+    text-align:center !important;
+  }
+
+  .studio-hero__description{
+    width:100% !important;
+    max-width:560px !important;
+    margin:12px auto 0 !important;
+    text-align:center !important;
+  }
+
+  .studio-hero__headline-wrap .studio-hero__ctas,
+  .studio-hero__ctas{
+    width:100% !important;
+    margin:18px auto 0 !important;
+    display:flex !important;
+    flex-wrap:wrap !important;
+    justify-content:center !important;
+    gap:10px !important;
+  }
+}
+
+@media (max-width:560px){
+  .studio-hero{
+    padding-top:64px !important;
+  }
+
+  .studio-hero__inner{
+    width:calc(100% - 28px) !important;
+  }
+
+  .studio-hero__stage,
+  .studio-hero__stage--refined{
+    padding:22px 0 34px !important;
+  }
+
+  .studio-hero__portrait--refined{
+    width:clamp(200px,60vw,280px) !important;
+    height:clamp(238px,72vw,336px) !important;
+    margin-bottom:14px !important;
+  }
+
+  .studio-hero__main-heading{
+    font-size:clamp(34px,10vw,46px) !important;
+  }
+
+  .studio-hero__typing-line{
+    max-width:330px !important;
+    margin-top:9px !important;
+    font-size:clamp(13px,4vw,17px) !important;
+  }
+
+  .studio-hero__description{
+    max-width:36ch !important;
+    margin-top:9px !important;
+    font-size:13px !important;
+    line-height:1.58 !important;
+  }
+
+  .studio-hero__headline-wrap .studio-hero__ctas,
+  .studio-hero__ctas{
+    margin-top:14px !important;
+  }
+}
+
+@media (max-width:380px){
+  .studio-hero__portrait--refined{
+    width:190px !important;
+    height:228px !important;
+  }
+
+  .studio-hero__main-heading{
+    font-size:32px !important;
+  }
+
+  .studio-hero__description{
+    font-size:12px !important;
+  }
+}
+
 </style>
 </head>
 <body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-about-position="moved-up" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="working-scroll-blue-to-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-menu="full-viewport-height" data-mobile-portrait-size="large-centered-no-overlap" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="animated-shared-background" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-controller="standalone-no-dependencies" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
