@@ -6456,9 +6456,151 @@ p{font-size:var(--ui-body-size);line-height:1.72}
     box-shadow:none !important;
   }
 }
+
+/* ==========================================================
+   HERO + ABOUT — ONE CONTINUOUS SECTION
+   Both areas now share one background surface with no divider.
+========================================================== */
+#hero-about.hero-about-transition-wrap{
+  position:relative;
+  width:100%;
+  margin:0;
+  padding:0;
+  overflow:hidden;
+  isolation:isolate;
+  background:#c6e2f4;
+  border:0;
+  box-shadow:none;
+}
+
+/* The internal Hero and About areas are transparent parts of one section. */
+#hero-about > #home,
+#hero-about > #about,
+#hero-about > #about.simple-about--split{
+  position:relative;
+  z-index:1;
+  width:100%;
+  margin:0 !important;
+  border:0 !important;
+  outline:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  clip-path:none !important;
+}
+
+/* Remove any old boundary lines, local backgrounds, or seam-producing layers. */
+#hero-about > #home::before,
+#hero-about > #home::after,
+#hero-about > #about::before,
+#hero-about > #about::after{
+  display:none !important;
+  content:none !important;
+}
+
+#hero-about > #home{
+  min-height:100svh;
+}
+
+#hero-about > #about{
+  padding-top:clamp(84px,9vw,132px);
+}
+
+/* One continuous texture layer covers the full combined section. */
+#hero-about .hero-about-transition-bg{
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+
+#hero-about .hero-about-transition-bg__sticky{
+  position:sticky;
+  top:0;
+  width:100%;
+  height:100svh;
+  overflow:hidden;
+}
+
+#hero-about .hero-about-transition-bg__blue{
+  opacity:calc(1 - var(--transition-progress));
+  background:
+    radial-gradient(circle at 18% 22%,rgba(255,255,255,.20),transparent 32%),
+    #c6e2f4;
+}
+
+#hero-about .hero-about-transition-bg__white{
+  opacity:var(--transition-progress);
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(255,255,255,.96) 0 .5px,
+      transparent .8px
+    ) 0 0 / 18px 18px,
+    radial-gradient(
+      circle at 72% 64%,
+      rgba(10,21,38,.026) 0 .7px,
+      transparent 1px
+    ) 0 0 / 24px 24px,
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.998),
+      rgba(246,246,243,.998)
+    );
+}
+
+#hero-about .hero-about-transition-bg__texture{
+  opacity:calc(var(--transition-progress) * .70);
+}
+
+/* Fade the Hero grid into the shared background rather than ending at a line. */
+#hero-about #home .studio-grid-lines{
+  -webkit-mask-image:linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 58%,
+    rgba(0,0,0,.62) 76%,
+    transparent 100%
+  ) !important;
+  mask-image:linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 58%,
+    rgba(0,0,0,.62) 76%,
+    transparent 100%
+  ) !important;
+}
+
+/* About's optional grid fades in naturally over the same surface. */
+#hero-about #about .simple-about__grid{
+  opacity:calc(.18 * var(--transition-progress)) !important;
+  border:0 !important;
+}
+
+/* Remove any mobile-only local background that could recreate a seam. */
+@media(max-width:700px){
+  #hero-about > #about.simple-about--split{
+    margin:0 !important;
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  #hero-about #about .simple-about__grid{
+    display:none !important;
+  }
+
+  #hero-about > #home{
+    min-height:auto;
+  }
+
+  #hero-about > #about{
+    padding-top:72px;
+  }
+}
 </style>
 </head>
-<body data-about="blueprint-portrait" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="hero-about-scroll-fade" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
+<body data-about="blueprint-portrait" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="continuous-blue-to-white" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
 <header class="site-header hero-mode">
 <div class="container nav">
 <a aria-label="Omar Darwish home" class="brand" href="#home">
@@ -6472,13 +6614,13 @@ p{font-size:var(--ui-body-size);line-height:1.72}
 </div>
 </header>
 <main>
-<div class="hero-about-transition-wrap"><div aria-hidden="true" class="hero-about-transition-bg">
+<section aria-label="Introduction and about" class="hero-about-transition-wrap" id="hero-about"><div aria-hidden="true" class="hero-about-transition-bg">
 <div class="hero-about-transition-bg__sticky">
 <div class="hero-about-transition-bg__blue"></div>
 <div class="hero-about-transition-bg__white"></div>
 <div class="hero-about-transition-bg__texture"></div>
 </div>
-</div><section class="studio-hero" id="home">
+</div><div aria-label="Introduction" class="studio-hero" id="home" role="region">
 <div aria-hidden="true" class="studio-grid-lines"></div>
 <div class="container studio-hero__inner">
 <div class="studio-hero__stage studio-hero__stage--refined">
@@ -6515,7 +6657,7 @@ p{font-size:var(--ui-body-size);line-height:1.72}
 <div aria-hidden="true" class="studio-portrait-floor-shadow"></div></div></figure>
 </div>
 </div>
-</section><section class="simple-about simple-about--refined simple-about--split" data-bg-style="textured-white" id="about">
+</div><div aria-label="About me" class="simple-about simple-about--refined simple-about--split" data-bg-style="textured-white" id="about" role="region">
 <div aria-hidden="true" class="simple-about__grid"></div>
 <div class="container simple-about__inner">
 <div class="simple-about__split-layout">
@@ -6560,7 +6702,7 @@ p{font-size:var(--ui-body-size);line-height:1.72}
 </div>
 </div>
 </div>
-</section></div>
+</div></section>
 <div aria-hidden="true" class="marquee">
 <div class="marquee-track">
 <span>Website Design</span><span>WordPress</span><span>Shopify</span><span>Graphic Design</span><span>Email Marketing</span><span>Workflow Automation</span><span>Digital Support</span>
@@ -7379,12 +7521,15 @@ p{font-size:var(--ui-body-size);line-height:1.72}
 
 
 
-      const heroAboutTransition = document.querySelector(
-        '.hero-about-transition-wrap'
-      );
-      const aboutBackgroundSection = document.getElementById('about');
+      const heroAboutTransition = document.getElementById('hero-about');
+      const heroBackgroundArea = document.getElementById('home');
+      const aboutBackgroundArea = document.getElementById('about');
 
-      if (heroAboutTransition && aboutBackgroundSection) {
+      if (
+        heroAboutTransition &&
+        heroBackgroundArea &&
+        aboutBackgroundArea
+      ) {
         const updateScopedBackgroundTransition = () => {
           if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             heroAboutTransition.style.setProperty('--transition-progress', '1');
@@ -7392,16 +7537,17 @@ p{font-size:var(--ui-body-size);line-height:1.72}
             return;
           }
 
-          const aboutRect = aboutBackgroundSection.getBoundingClientRect();
+          const aboutRect = aboutBackgroundArea.getBoundingClientRect();
           const viewportHeight =
             window.innerHeight || document.documentElement.clientHeight;
 
           /*
-            A deliberately short range makes the blue-to-white change
-            obvious as About enters the viewport.
+            Because Hero and About are one continuous section, the color
+            begins changing before About reaches the viewport and finishes
+            only after About has moved well into view.
           */
-          const transitionStart = viewportHeight * 0.94;
-          const transitionEnd = viewportHeight * 0.42;
+          const transitionStart = viewportHeight * 1.18;
+          const transitionEnd = viewportHeight * 0.10;
           const rawProgress =
             (transitionStart - aboutRect.top) /
             (transitionStart - transitionEnd);
@@ -7412,7 +7558,7 @@ p{font-size:var(--ui-body-size);line-height:1.72}
             clampedProgress *
             (3 - 2 * clampedProgress);
 
-          const parallaxOffset = (progress - 0.5) * -110;
+          const parallaxOffset = (progress - 0.5) * -72;
 
           heroAboutTransition.style.setProperty(
             '--transition-progress',
