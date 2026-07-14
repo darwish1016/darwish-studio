@@ -5714,6 +5714,317 @@ p {
   }
 }
 
+
+
+/* ==========================================================
+   EXPERIENCE — EDITORIAL TIMELINE
+========================================================== */
+.experience-section{
+  --experience-bg:#d9ecf8;
+  --experience-line:rgba(7,17,31,.16);
+  position:relative;
+  overflow:hidden;
+  color:#07111f;
+  background:var(--experience-bg);
+  border-block:1px solid rgba(7,17,31,.18);
+}
+
+.experience-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background-image:
+    linear-gradient(var(--experience-line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--experience-line) 1px,transparent 1px);
+  background-size:100% 220px,25% 100%;
+  opacity:.58;
+}
+
+.experience-section .container{
+  position:relative;
+  z-index:1;
+}
+
+.experience-head{
+  display:grid;
+  grid-template-columns:minmax(0,1.12fr) minmax(300px,.58fr);
+  gap:clamp(40px,7vw,100px);
+  align-items:end;
+  margin-bottom:58px;
+}
+
+.experience-head .section-title{
+  max-width:12ch;
+  color:#07111f;
+}
+
+.experience-head .section-lede{
+  margin:0 0 4px;
+  color:rgba(7,17,31,.67);
+  font:500 14px/1.8 "DM Mono",monospace;
+}
+
+.experience-group + .experience-group{
+  margin-top:clamp(52px,7vw,86px);
+}
+
+.experience-group-label{
+  padding:0 0 15px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  color:#07111f;
+  font:600 11px/1.3 "DM Mono",monospace;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+.experience-group-label span{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.experience-group-label span::before{
+  content:"";
+  width:24px;
+  height:2px;
+  background:#1877F2;
+}
+
+.experience-group-label small{
+  color:rgba(7,17,31,.52);
+  font:500 9px/1.3 "DM Mono",monospace;
+  letter-spacing:.08em;
+}
+
+.experience-list{
+  border-top:1px solid #07111f;
+}
+
+.experience-group--internship{
+  padding:clamp(24px,4vw,38px);
+  border:1px solid rgba(7,17,31,.22);
+  background:rgba(255,255,255,.22);
+}
+
+.experience-group--internship .experience-list{
+  border-top-color:rgba(7,17,31,.55);
+}
+
+.experience-group--internship .experience-item:last-child{
+  border-bottom:0;
+  padding-bottom:0;
+}
+
+.experience-group--internship .experience-item:hover{
+  background:rgba(255,255,255,.32);
+}
+
+.experience-item{
+  position:relative;
+  display:grid;
+  grid-template-columns:74px minmax(205px,.52fr) minmax(0,1.28fr);
+  gap:clamp(22px,4vw,58px);
+  padding:38px 18px 38px 0;
+  border-bottom:1px solid var(--experience-line);
+  transition:padding .28s var(--ease),background .28s ease;
+}
+
+.experience-item:hover{
+  padding-left:18px;
+  background:rgba(255,255,255,.30);
+}
+
+.experience-number{
+  width:50px;
+  height:50px;
+  display:grid;
+  place-items:center;
+  border:1px solid #07111f;
+  border-radius:50%;
+  color:#07111f;
+  background:rgba(255,255,255,.22);
+  font:600 11px/1 "DM Mono",monospace;
+  transition:color .25s ease,background .25s ease,border-color .25s ease;
+}
+
+.experience-item:hover .experience-number{
+  color:#fff;
+  border-color:#1877F2;
+  background:#1877F2;
+}
+
+.experience-meta{
+  padding-top:3px;
+}
+
+.experience-period{
+  display:block;
+  color:#1877F2;
+  font:600 11px/1.45 "DM Mono",monospace;
+  letter-spacing:.065em;
+  text-transform:uppercase;
+}
+
+.experience-company{
+  display:block;
+  margin-top:14px;
+  font-family:var(--display);
+  font-size:20px;
+  font-weight:700;
+  letter-spacing:-.035em;
+  line-height:1.12;
+}
+
+.experience-location{
+  display:block;
+  margin-top:8px;
+  color:rgba(7,17,31,.58);
+  font:500 10px/1.55 "DM Mono",monospace;
+  text-transform:uppercase;
+}
+
+.experience-main{
+  min-width:0;
+}
+
+.experience-main h3{
+  max-width:19ch;
+  margin:0;
+  font-family:var(--display);
+  font-size:clamp(28px,3.2vw,46px);
+  font-weight:600;
+  letter-spacing:-.055em;
+  line-height:.98;
+}
+
+.experience-main p{
+  max-width:66ch;
+  margin:19px 0 0;
+  color:rgba(7,17,31,.72);
+  font-size:14px;
+  line-height:1.82;
+}
+
+.experience-skills{
+  margin-top:23px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+}
+
+.experience-skills span{
+  padding:8px 11px;
+  border:1px solid rgba(7,17,31,.28);
+  background:rgba(255,255,255,.20);
+  font:600 9px/1 "DM Mono",monospace;
+  letter-spacing:.045em;
+  text-transform:uppercase;
+  transition:color .2s ease,background .2s ease,border-color .2s ease;
+}
+
+.experience-skills span:hover{
+  color:#fff;
+  border-color:#1877F2;
+  background:#1877F2;
+}
+
+@media(max-width:900px){
+  .experience-head{
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+
+  .experience-head .section-lede{
+    max-width:62ch;
+  }
+
+  .experience-item{
+    grid-template-columns:60px minmax(180px,.55fr) minmax(0,1fr);
+    gap:22px;
+  }
+}
+
+@media(max-width:700px){
+  .experience-section::before{
+    background-size:100% 190px,50% 100%;
+  }
+
+  .experience-head{
+    margin-bottom:38px;
+  }
+
+  .experience-group + .experience-group{
+    margin-top:46px;
+  }
+
+  .experience-group-label{
+    align-items:flex-start;
+  }
+
+  .experience-group--internship{
+    padding:22px 16px;
+  }
+
+  .experience-item,
+  .experience-item:hover{
+    grid-template-columns:52px minmax(0,1fr);
+    gap:16px;
+    padding:28px 0;
+    background:transparent;
+  }
+
+  .experience-number{
+    width:44px;
+    height:44px;
+  }
+
+  .experience-meta{
+    padding-top:1px;
+  }
+
+  .experience-company{
+    margin-top:9px;
+    font-size:18px;
+  }
+
+  .experience-location{
+    margin-top:6px;
+  }
+
+  .experience-main{
+    grid-column:2;
+  }
+
+  .experience-main h3{
+    max-width:22ch;
+    font-size:clamp(28px,8.7vw,40px);
+  }
+
+  .experience-main p{
+    margin-top:15px;
+    font-size:13px;
+  }
+
+  .experience-skills{
+    margin-top:18px;
+  }
+}
+
+@media(max-width:420px){
+  .experience-item,
+  .experience-item:hover{
+    grid-template-columns:1fr;
+  }
+
+  .experience-main{
+    grid-column:auto;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -5798,7 +6109,7 @@ p {
 </div>
 </div>
 <div class="simple-about__right">
-<div class="simple-about__stat-card reveal" id="experience">
+<div class="simple-about__stat-card reveal" id="experience-summary">
 <strong>3+</strong>
 <span>Years of remote work</span>
 <small>Worked with clients across 3 continents · flexible with time zones</small>
@@ -6064,6 +6375,98 @@ p {
 <p>I support day-to-day digital tasks so business owners can focus on higher-value work.</p>
 <span class="service-arrow">↗</span>
 </article>
+</div>
+</div>
+</section>
+
+<section class="section experience-section" id="experience" aria-labelledby="experience-title">
+<div class="container">
+<div class="experience-head">
+<div>
+<div class="kicker">Experience</div>
+<h2 class="section-title" id="experience-title">My work across websites, admin, and systems.</h2>
+</div>
+<p class="section-lede">Professional remote experience supporting businesses through web development, digital operations, product management, marketing, and workflow improvements—followed by a dedicated software development internship.</p>
+</div>
+
+<div class="experience-group">
+<div class="experience-group-label">
+<span>Professional Experience</span>
+<small>03 roles</small>
+</div>
+<div class="experience-list">
+<article class="experience-item reveal">
+<div class="experience-number" aria-hidden="true">01</div>
+<div class="experience-meta">
+<time class="experience-period" datetime="2025-11">Nov 2025 — May 2026</time>
+<strong class="experience-company">Levels IT</strong>
+<span class="experience-location">Australia · Full-time Remote</span>
+</div>
+<div class="experience-main">
+<h3>Freelance Web Developer &amp; Designer</h3>
+<p>I worked with Levels IT on websites, SEO, email, social media, and client projects. I helped launch more than four live websites and contributed to an improvement of over 80% in digital visibility.</p>
+<div class="experience-skills" aria-label="Skills used">
+<span>Web Design</span><span>Web Development</span><span>SEO</span><span>E-commerce</span><span>Email Marketing</span>
+</div>
+</div>
+</article>
+
+<article class="experience-item reveal">
+<div class="experience-number" aria-hidden="true">02</div>
+<div class="experience-meta">
+<time class="experience-period" datetime="2024-12">Dec 2024 — Nov 2025</time>
+<strong class="experience-company">Dove Press Publishing Ltd.</strong>
+<span class="experience-location">United Kingdom · Full-time Remote</span>
+</div>
+<div class="experience-main">
+<h3>General Admin Virtual Assistant</h3>
+<p>I supported email management, project tasks, social posts, simple automations, email campaigns, and lead research throughout a 12-month remote work cycle. I also helped make repeated administrative tasks up to 80% faster.</p>
+<div class="experience-skills" aria-label="Skills used">
+<span>Email Management</span><span>Project Management</span><span>Workflow Automation</span><span>Lead Generation</span>
+</div>
+</div>
+</article>
+
+<article class="experience-item reveal">
+<div class="experience-number" aria-hidden="true">03</div>
+<div class="experience-meta">
+<time class="experience-period" datetime="2023">2023 · 6 Months</time>
+<strong class="experience-company">Debra’s Australia</strong>
+<span class="experience-location">Australia · Full-time Remote</span>
+</div>
+<div class="experience-main">
+<h3>General Virtual Assistant &amp; Product Lister</h3>
+<p>I managed digital inventory and organised product assets for different brands, processed and delivered purchase orders, and provided dependable administrative support through progress updates and work-hour reporting. I also assisted with data management and daily workflow coordination.</p>
+<div class="experience-skills" aria-label="Skills used">
+<span>Product Listing</span><span>Inventory Management</span><span>Purchase Orders</span><span>Admin Support</span><span>Data Management</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+
+<div class="experience-group experience-group--internship">
+<div class="experience-group-label">
+<span>Internship Experience</span>
+<small>01 placement</small>
+</div>
+<div class="experience-list">
+<article class="experience-item reveal">
+<div class="experience-number" aria-hidden="true">01</div>
+<div class="experience-meta">
+<time class="experience-period" datetime="2026-01">Jan 2026 — Jun 2026</time>
+<strong class="experience-company">LGU General Santos City — HRMDO</strong>
+<span class="experience-location">Philippines · Full-time Internship</span>
+</div>
+<div class="experience-main">
+<h3>Main Web Developer / Software Developer Intern</h3>
+<p>I built a web-based Performance Management System using PHP, CodeIgniter 4, HTML, CSS, and JavaScript. The system moved the SPMS process from spreadsheets into one online platform, reduced manual work by more than 90%, and made over 100 personnel records easier to manage.</p>
+<div class="experience-skills" aria-label="Skills used">
+<span>PHP</span><span>CodeIgniter 4</span><span>JavaScript</span><span>Database Architecture</span><span>System Automation</span>
+</div>
+</div>
+</article>
+</div>
 </div>
 </div>
 </section>
