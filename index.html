@@ -6409,9 +6409,56 @@ p{font-size:var(--ui-body-size);line-height:1.72}
 .site-header:not(.hero-mode) .nav-links > a:not(.button)::after{
   background:#07111f !important;
 }
+
+/* ==========================================================
+   MOBILE ABOUT — REMOVE VISIBLE BACKGROUND/GRID SEAM
+========================================================== */
+@media(max-width:700px){
+  /* Give About one continuous background on mobile. */
+  .hero-about-transition-wrap > #about.simple-about--split{
+    margin-top:-2px !important;
+    background:
+      radial-gradient(
+        circle at 18% 22%,
+        rgba(255,255,255,.92) 0 .5px,
+        transparent .8px
+      ) 0 0 / 18px 18px,
+      radial-gradient(
+        circle at 72% 64%,
+        rgba(10,21,38,.025) 0 .7px,
+        transparent 1px
+      ) 0 0 / 24px 24px,
+      linear-gradient(
+        180deg,
+        rgba(255,255,255,.995),
+        rgba(247,247,244,.995)
+      ) !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+
+  /* The blueprint grid caused the obvious horizontal/vertical line. */
+  .hero-about-transition-wrap #about .simple-about__grid{
+    display:none !important;
+    opacity:0 !important;
+    background:none !important;
+  }
+
+  /* Prevent sub-pixel seams around the About content blocks. */
+  #about .simple-about__inner,
+  #about .simple-about__split-layout,
+  #about .simple-about__left,
+  #about .simple-about__right,
+  #about .simple-about__heading,
+  #about .simple-about__copy{
+    background:transparent !important;
+    border:0 !important;
+    box-shadow:none !important;
+  }
+}
 </style>
 </head>
-<body data-about="blueprint-portrait" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="hero-about-scroll-fade" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
+<body data-about="blueprint-portrait" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="hero-about-scroll-fade" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
 <header class="site-header hero-mode">
 <div class="container nav">
 <a aria-label="Omar Darwish home" class="brand" href="#home">
