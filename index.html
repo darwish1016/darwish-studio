@@ -7214,9 +7214,110 @@ p{font-size:var(--ui-body-size);line-height:1.72}
     height:clamp(230px,66vw,274px) !important;
   }
 }
+
+/* ==========================================================
+   MOBILE HERO PORTRAIT — CENTERED, LARGE, NO TEXT OVERLAP
+========================================================== */
+@media(max-width:700px){
+  .studio-hero__stage,
+  .studio-hero__stage--refined{
+    display:flex !important;
+    flex-direction:column !important;
+    align-items:center !important;
+    justify-content:flex-start !important;
+    overflow:visible !important;
+    padding-top:24px !important;
+    padding-bottom:34px !important;
+  }
+
+  /* Keep the portrait in normal document flow above the text. */
+  .studio-hero__portrait--refined{
+    position:relative !important;
+    inset:auto !important;
+    order:1 !important;
+    flex:0 0 auto !important;
+    width:clamp(214px,61vw,282px) !important;
+    height:clamp(258px,73vw,338px) !important;
+    margin:0 auto 16px !important;
+    overflow:visible !important;
+  }
+
+  .studio-portrait-shell,
+  .studio-portrait-frame,
+  .studio-hero__portrait-image{
+    width:100% !important;
+    height:100% !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    overflow:visible !important;
+  }
+
+  /*
+    Remove the previous 138% enlargement and negative translation.
+    Those rules pushed the portrait into the heading area.
+  */
+  .studio-hero__portrait-image img{
+    width:100% !important;
+    height:100% !important;
+    max-width:100% !important;
+    object-fit:contain !important;
+    object-position:center center !important;
+    transform:none !important;
+    margin:0 auto !important;
+    filter:drop-shadow(0 20px 24px rgba(7,17,31,.15)) !important;
+  }
+
+  .studio-hero__portrait--refined:hover .studio-hero__portrait-image img{
+    transform:none !important;
+  }
+
+  /* Text begins only after the portrait has finished. */
+  .studio-hero__headline-wrap{
+    position:relative !important;
+    order:2 !important;
+    z-index:3 !important;
+    width:100% !important;
+    max-width:430px !important;
+    margin:0 auto !important;
+    padding:0 !important;
+    clear:both !important;
+  }
+
+  .studio-hero__main-heading{
+    margin-top:0 !important;
+  }
+}
+
+@media(max-width:390px){
+  .studio-hero__stage,
+  .studio-hero__stage--refined{
+    padding-top:20px !important;
+    padding-bottom:28px !important;
+  }
+
+  .studio-hero__portrait--refined{
+    width:clamp(198px,58vw,226px) !important;
+    height:clamp(238px,69vw,272px) !important;
+    margin-bottom:13px !important;
+  }
+}
+
+@media(max-width:700px) and (max-height:700px){
+  .studio-hero__stage,
+  .studio-hero__stage--refined{
+    padding-top:16px !important;
+  }
+
+  .studio-hero__portrait--refined{
+    width:clamp(180px,52vw,214px) !important;
+    height:clamp(216px,62vw,256px) !important;
+    margin-bottom:10px !important;
+  }
+}
 </style>
 </head>
-<body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-about-position="moved-up" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="working-scroll-blue-to-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-menu="full-viewport-height" data-mobile-portrait-size="larger" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="animated-shared-background" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-controller="standalone-no-dependencies" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
+<body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-about-position="moved-up" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="working-scroll-blue-to-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-menu="full-viewport-height" data-mobile-portrait-size="large-centered-no-overlap" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="animated-shared-background" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-controller="standalone-no-dependencies" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
 <header class="site-header hero-mode">
 <div class="container nav">
 <a aria-label="Omar Darwish home" class="brand" href="#home">
