@@ -6598,9 +6598,196 @@ p{font-size:var(--ui-body-size);line-height:1.72}
     padding-top:72px;
   }
 }
+
+/* ==========================================================
+   HERO + ABOUT — TRUE CONTINUOUS BACKGROUND
+   The blue belongs only to the Hero and fades away before About.
+========================================================== */
+#hero-about{
+  --hero-fade-height:100svh;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(255,255,255,.94) 0 .5px,
+      transparent .8px
+    ) 0 0 / 18px 18px,
+    radial-gradient(
+      circle at 72% 64%,
+      rgba(10,21,38,.024) 0 .7px,
+      transparent 1px
+    ) 0 0 / 24px 24px,
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f7f7f4 100%
+    ) !important;
+}
+
+/* One full-height background system shared by both internal areas. */
+#hero-about .hero-about-transition-bg{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  overflow:hidden !important;
+  pointer-events:none;
+}
+
+#hero-about .hero-about-transition-bg__sticky{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  overflow:hidden !important;
+}
+
+/* White textured base continues through Hero and About. */
+#hero-about .hero-about-transition-bg__white{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:0 !important;
+  opacity:1 !important;
+  transform:none !important;
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(255,255,255,.95) 0 .5px,
+      transparent .8px
+    ) 0 0 / 18px 18px,
+    radial-gradient(
+      circle at 72% 64%,
+      rgba(10,21,38,.024) 0 .7px,
+      transparent 1px
+    ) 0 0 / 24px 24px,
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f7f7f4 100%
+    ) !important;
+}
+
+/*
+  Blue is now only an overlay over the actual Hero height.
+  It fades completely to transparent at the Hero's bottom,
+  revealing the same white surface that continues into About.
+*/
+#hero-about .hero-about-transition-bg__blue{
+  position:absolute !important;
+  top:0 !important;
+  right:0 !important;
+  left:0 !important;
+  bottom:auto !important;
+  width:100% !important;
+  height:var(--hero-fade-height) !important;
+  z-index:1 !important;
+  opacity:1 !important;
+  transform:none !important;
+  background:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(255,255,255,.22),
+      transparent 31%
+    ),
+    linear-gradient(
+      to bottom,
+      #c6e2f4 0%,
+      #c6e2f4 44%,
+      rgba(198,226,244,.98) 58%,
+      rgba(211,233,247,.90) 70%,
+      rgba(228,241,250,.68) 82%,
+      rgba(244,249,252,.32) 92%,
+      rgba(255,255,255,0) 100%
+    ) !important;
+}
+
+/* A subtle texture spans the complete combined section. */
+#hero-about .hero-about-transition-bg__texture{
+  position:absolute !important;
+  inset:0 !important;
+  z-index:2 !important;
+  opacity:.42 !important;
+  transform:none !important;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255,255,255,.24) 24%,
+      transparent 52%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(7,17,31,.010) 0,
+      rgba(7,17,31,.010) 1px,
+      transparent 1px,
+      transparent 9px
+    ) !important;
+}
+
+/* Both content areas sit above the same shared background. */
+#hero-about > #home,
+#hero-about > #about,
+#hero-about > #about.simple-about--split{
+  position:relative !important;
+  z-index:3 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* About must always reveal the white base, never the blue overlay. */
+#hero-about > #about{
+  background:transparent !important;
+  border-top:0 !important;
+}
+
+/* Remove local layers that can create a line or dent. */
+#hero-about > #home::before,
+#hero-about > #home::after,
+#hero-about > #about::before,
+#hero-about > #about::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* Fade the Hero blueprint grid before the shared color fade finishes. */
+#hero-about #home .studio-grid-lines{
+  -webkit-mask-image:linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 56%,
+    rgba(0,0,0,.62) 72%,
+    rgba(0,0,0,.20) 88%,
+    transparent 100%
+  ) !important;
+  mask-image:linear-gradient(
+    to bottom,
+    #000 0%,
+    #000 56%,
+    rgba(0,0,0,.62) 72%,
+    rgba(0,0,0,.20) 88%,
+    transparent 100%
+  ) !important;
+}
+
+@media(max-width:700px){
+  #hero-about{
+    --hero-fade-height:auto;
+  }
+
+  #hero-about > #about{
+    background:transparent !important;
+  }
+
+  #hero-about #about .simple-about__grid{
+    display:none !important;
+  }
+}
 </style>
 </head>
-<body data-about="blueprint-portrait" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="continuous-blue-to-white" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
+<body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="hero-blue-fades-to-shared-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="continuous-blue-to-white" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
 <header class="site-header hero-mode">
 <div class="container nav">
 <a aria-label="Omar Darwish home" class="brand" href="#home">
@@ -7778,6 +7965,47 @@ p{font-size:var(--ui-body-size);line-height:1.72}
               laptop.style.setProperty('--tools-tilt-y', '0deg');
             }
           });
+        }
+      })();
+
+
+      /* Keep the Hero blue fade aligned with the real Hero height. */
+      (() => {
+        const combinedSection = document.getElementById('hero-about');
+        const heroArea = document.getElementById('home');
+
+        if (!combinedSection || !heroArea) return;
+
+        let resizeFrame = null;
+
+        const updateHeroFadeHeight = () => {
+          const heroHeight = Math.max(
+            1,
+            Math.ceil(heroArea.getBoundingClientRect().height)
+          );
+
+          combinedSection.style.setProperty(
+            '--hero-fade-height',
+            `${heroHeight}px`
+          );
+        };
+
+        const requestHeroFadeUpdate = () => {
+          if (resizeFrame !== null) return;
+
+          resizeFrame = window.requestAnimationFrame(() => {
+            updateHeroFadeHeight();
+            resizeFrame = null;
+          });
+        };
+
+        updateHeroFadeHeight();
+        window.addEventListener('load', updateHeroFadeHeight, { once:true });
+        window.addEventListener('resize', requestHeroFadeUpdate);
+
+        if ('ResizeObserver' in window) {
+          const heroFadeObserver = new ResizeObserver(requestHeroFadeUpdate);
+          heroFadeObserver.observe(heroArea);
         }
       })();
 
