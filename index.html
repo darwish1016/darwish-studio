@@ -7095,9 +7095,91 @@ p{font-size:var(--ui-body-size);line-height:1.72}
     padding-bottom:60px !important;
   }
 }
+
+/* ==========================================================
+   MOBILE NAVIGATION — TRUE FULL VIEWPORT HEIGHT
+========================================================== */
+@media(max-width:1120px){
+  /*
+    backdrop-filter on the fixed header can make a fixed child use the
+    header as its containing block. Expand the header itself when open,
+    then position the menu inside that full-height header.
+  */
+  body.menu-open .site-header{
+    top:0 !important;
+    right:0 !important;
+    bottom:auto !important;
+    left:0 !important;
+    width:100% !important;
+    height:100dvh !important;
+    min-height:100svh !important;
+    overflow:hidden !important;
+    background:rgba(240,247,251,.985) !important;
+    backdrop-filter:blur(20px) saturate(135%) !important;
+    -webkit-backdrop-filter:blur(20px) saturate(135%) !important;
+  }
+
+  .site-header .nav{
+    position:relative;
+    z-index:2;
+  }
+
+  .site-header .nav-links{
+    position:absolute !important;
+    top:74px !important;
+    right:0 !important;
+    bottom:0 !important;
+    left:0 !important;
+    width:100% !important;
+    height:auto !important;
+    min-height:calc(100dvh - 74px) !important;
+    padding:24px clamp(20px,5vw,40px) max(28px,env(safe-area-inset-bottom)) !important;
+    overflow-x:hidden !important;
+    overflow-y:auto !important;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+
+  .site-header .nav-links.open{
+    display:flex !important;
+  }
+}
+
+@media(max-width:560px){
+  body.menu-open .site-header{
+    height:100dvh !important;
+    min-height:100svh !important;
+  }
+
+  .site-header .nav-links{
+    top:64px !important;
+    bottom:0 !important;
+    min-height:calc(100dvh - 64px) !important;
+    padding-top:20px !important;
+  }
+}
+
+/* Fallback for browsers without dynamic viewport units. */
+@supports not (height:100dvh){
+  @media(max-width:1120px){
+    body.menu-open .site-header{
+      height:100vh !important;
+    }
+
+    .site-header .nav-links{
+      min-height:calc(100vh - 74px) !important;
+    }
+  }
+
+  @media(max-width:560px){
+    .site-header .nav-links{
+      min-height:calc(100vh - 64px) !important;
+    }
+  }
+}
 </style>
 </head>
-<body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-about-position="moved-up" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="working-scroll-blue-to-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="animated-shared-background" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-controller="standalone-no-dependencies" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
+<body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-about-position="moved-up" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="working-scroll-blue-to-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-menu="full-viewport-height" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="animated-shared-background" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-controller="standalone-no-dependencies" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
 <header class="site-header hero-mode">
 <div class="container nav">
 <a aria-label="Omar Darwish home" class="brand" href="#home">
