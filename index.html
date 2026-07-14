@@ -5649,6 +5649,71 @@ p {
 @media (prefers-reduced-motion: reduce) {
   .text-type__cursor { animation: none; }
 }
+
+
+/* ==========================================================
+   HEADER BRAND — LARGER AND MORE READABLE ON ALL SCREENS
+========================================================== */
+.site-header .brand{
+  gap:14px;
+  flex:0 0 auto;
+}
+
+.site-header .brand-mark{
+  width:44px !important;
+  height:44px !important;
+  font-size:14px !important;
+  font-weight:700;
+  letter-spacing:-.02em;
+}
+
+.site-header .brand-copy strong{
+  font-size:16px !important;
+  line-height:1.12;
+  letter-spacing:-.025em;
+  white-space:nowrap;
+}
+
+.site-header .brand-copy small{
+  margin-top:5px;
+  font-size:9px !important;
+  line-height:1.2;
+  letter-spacing:.09em !important;
+  white-space:nowrap;
+}
+
+@media (max-width:700px){
+  .site-header .brand{
+    gap:10px;
+  }
+
+  .site-header .brand-mark{
+    width:38px !important;
+    height:38px !important;
+    font-size:12px !important;
+  }
+
+  .site-header .brand-copy strong{
+    font-size:13px !important;
+  }
+
+  .site-header .brand-copy small{
+    margin-top:3px;
+    font-size:7px !important;
+    letter-spacing:.055em !important;
+  }
+}
+
+@media (max-width:380px){
+  .site-header .brand-copy strong{
+    font-size:12px !important;
+  }
+
+  .site-header .brand-copy small{
+    font-size:6.5px !important;
+  }
+}
+
 </style>
 </head>
 <body>
