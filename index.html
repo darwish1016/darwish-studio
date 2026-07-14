@@ -6785,9 +6785,287 @@ p{font-size:var(--ui-body-size);line-height:1.72}
     display:none !important;
   }
 }
+
+/* ==========================================================
+   HERO + ABOUT — WHOLE-SECTION BLUE TO WHITE SCROLL FADE
+========================================================== */
+#hero-about{
+  --transition-progress:0;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  background:#c6e2f4 !important;
+}
+
+/* One background system spanning the full Hero + About section. */
+#hero-about .hero-about-transition-bg{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+  z-index:0 !important;
+}
+
+#hero-about .hero-about-transition-bg__sticky{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  overflow:hidden !important;
+}
+
+/* The entire section is blue before scrolling. */
+#hero-about .hero-about-transition-bg__blue{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  opacity:1 !important;
+  transform:none !important;
+  background:
+    radial-gradient(
+      circle at 17% 16%,
+      rgba(255,255,255,.22),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 82% 62%,
+      rgba(24,119,242,.08),
+      transparent 34%
+    ),
+    #c6e2f4 !important;
+}
+
+/* White fades over the complete section as the user scrolls down. */
+#hero-about .hero-about-transition-bg__white{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  opacity:var(--transition-progress) !important;
+  transform:none !important;
+  will-change:opacity;
+  background:
+    radial-gradient(
+      circle at 18% 22%,
+      rgba(255,255,255,.96) 0 .5px,
+      transparent .8px
+    ) 0 0 / 18px 18px,
+    radial-gradient(
+      circle at 72% 64%,
+      rgba(10,21,38,.026) 0 .7px,
+      transparent 1px
+    ) 0 0 / 24px 24px,
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f7f7f4 100%
+    ) !important;
+  transition:opacity .06s linear;
+}
+
+/* Texture gently appears with the white layer. */
+#hero-about .hero-about-transition-bg__texture{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  opacity:calc(var(--transition-progress) * .56) !important;
+  transform:none !important;
+  will-change:opacity;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0%,
+      rgba(255,255,255,.24) 24%,
+      transparent 52%
+    ),
+    repeating-linear-gradient(
+      135deg,
+      rgba(7,17,31,.010) 0,
+      rgba(7,17,31,.010) 1px,
+      transparent 1px,
+      transparent 9px
+    ) !important;
+}
+
+/* Both internal areas remain transparent over the same animated surface. */
+#hero-about > #home,
+#hero-about > #about,
+#hero-about > #about.simple-about--split{
+  position:relative !important;
+  z-index:2 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+/* Remove all local backgrounds and seam-producing pseudo-elements. */
+#hero-about > #home::before,
+#hero-about > #home::after,
+#hero-about > #about::before,
+#hero-about > #about::after{
+  display:none !important;
+  content:none !important;
+}
+
+/* The About grid also fades in with the white phase. */
+#hero-about #about .simple-about__grid{
+  opacity:calc(var(--transition-progress) * .16) !important;
+}
+
+/* Keep the Hero grid soft near the transition. */
+#hero-about #home .studio-grid-lines{
+  opacity:calc(.58 - (var(--transition-progress) * .24)) !important;
+}
+
+@media(max-width:700px){
+  #hero-about #about .simple-about__grid{
+    display:none !important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #hero-about{
+    --transition-progress:1;
+  }
+
+  #hero-about .hero-about-transition-bg__white{
+    transition:none !important;
+  }
+}
+
+/* ==========================================================
+   HERO + ABOUT — RELIABLE SCROLL-DRIVEN BLUE TO WHITE FADE
+========================================================== */
+#hero-about{
+  --transition-progress:0;
+  position:relative !important;
+  isolation:isolate !important;
+  overflow:hidden !important;
+  background:#c6e2f4 !important;
+}
+
+#hero-about .hero-about-transition-bg{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:0 !important;
+  overflow:hidden !important;
+  pointer-events:none !important;
+}
+
+#hero-about .hero-about-transition-bg__sticky{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+}
+
+/* Entire combined section is blue before scrolling. */
+#hero-about .hero-about-transition-bg__blue{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:0 !important;
+  opacity:1 !important;
+  transform:none !important;
+  background:
+    radial-gradient(circle at 18% 16%,rgba(255,255,255,.23),transparent 34%),
+    radial-gradient(circle at 82% 60%,rgba(24,119,242,.10),transparent 36%),
+    #c6e2f4 !important;
+}
+
+/* This complete white surface is faded in by the independent script. */
+#hero-about .hero-about-transition-bg__white{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:1 !important;
+  opacity:0;
+  transform:none !important;
+  will-change:opacity;
+  pointer-events:none !important;
+  background:
+    radial-gradient(circle at 18% 22%,rgba(255,255,255,.96) 0 .5px,transparent .8px) 0 0 / 18px 18px,
+    radial-gradient(circle at 72% 64%,rgba(10,21,38,.026) 0 .7px,transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(180deg,#ffffff 0%,#f7f7f4 100%) !important;
+}
+
+/* Texture appears with the white layer. */
+#hero-about .hero-about-transition-bg__texture{
+  position:absolute !important;
+  inset:0 !important;
+  width:100% !important;
+  height:100% !important;
+  z-index:2 !important;
+  opacity:0;
+  transform:none !important;
+  will-change:opacity;
+  pointer-events:none !important;
+  background:
+    linear-gradient(115deg,transparent 0%,rgba(255,255,255,.24) 24%,transparent 52%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(7,17,31,.010) 0,
+      rgba(7,17,31,.010) 1px,
+      transparent 1px,
+      transparent 9px
+    ) !important;
+}
+
+/* Hero and About are transparent content regions above the same background. */
+#hero-about > #home,
+#hero-about > #about,
+#hero-about > #about.simple-about--split{
+  position:relative !important;
+  z-index:3 !important;
+  margin:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+}
+
+#hero-about > #home::before,
+#hero-about > #home::after,
+#hero-about > #about::before,
+#hero-about > #about::after{
+  display:none !important;
+  content:none !important;
+}
+
+#hero-about #about .simple-about__grid{
+  opacity:calc(var(--transition-progress) * .16) !important;
+}
+
+#hero-about #home .studio-grid-lines{
+  opacity:calc(.58 - (var(--transition-progress) * .24)) !important;
+}
+
+@media(max-width:700px){
+  #hero-about #about .simple-about__grid{
+    display:none !important;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #hero-about .hero-about-transition-bg__white{
+    opacity:1 !important;
+  }
+
+  #hero-about .hero-about-transition-bg__texture{
+    opacity:.48 !important;
+  }
+}
 </style>
 </head>
-<body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="hero-blue-fades-to-shared-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="continuous-blue-to-white" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
+<body data-about="blueprint-portrait" data-about-background="shared-white" data-about-content="simplified" data-about-layout="split-reference-structure" data-background-transition="strong-fixed-parallax-no-seam" data-concept-filter="strict" data-cta-shape="rounded" data-design="editorial-blue-fixed" data-graphic-design-project="restored" data-graphic-images="16" data-graphic-tab="restored-from-old-code" data-header-hover="black-dotted" data-header-navigation="home-about-services-projects-experience-tools-resume-contact" data-header-opacity="semi-transparent" data-header-state="transparent-hero-blur-after" data-header-style="transparent-tronica-mono" data-hello="removed" data-hero="blueprint-editorial" data-hero-about-background="working-scroll-blue-to-white" data-hero-about-structure="single-section" data-hero-arrow="removed" data-hero-art="removed" data-hero-copy="darwish-intro-roles" data-hero-cta="enabled" data-hero-details="removed" data-hero-intro="removed" data-hero-intro-size="larger" data-hero-layout="heading-then-typing-then-description" data-hero-portrait="right" data-hero-size="full-viewport" data-hero-typing="enabled" data-hero-version="me-webp-large-cutout" data-mobile-about-line="fixed" data-mobile-height="content-based" data-mobile-hero="fixed-v2" data-mobile-layout="vertical-centered" data-mobile-refinement="top-gap-reduced-cta-enlarged" data-nav-hover="dotted-box" data-portrait-container="removed" data-portrait-design="layered-editorial" data-portrait-label="removed" data-process-hover="flip" data-project-design="old-layout-with-mac-chrome" data-project-filter-fix="strict-responsive" data-refinement="hero-about-v2" data-scroll-effect="removed" data-section-transition="animated-shared-background" data-services-hover="simple" data-services-spacing="compact" data-side-label="removed" data-texttype="react-bits-gsap" data-texttype-layout="large-aligned" data-tools-design="old-laptop-daily-stack" data-tools-heading="updated" data-tools-section-tag="tools-and-platforms" data-transition-controller="standalone-no-dependencies" data-transition-scope="hero-about-only" data-typing-gap="reduced" data-typing-layout="centered-mobile-tablet" data-typography-system="consistent-global">
 <header class="site-header hero-mode">
 <div class="container nav">
 <a aria-label="Omar Darwish home" class="brand" href="#home">
@@ -7708,75 +7986,6 @@ p{font-size:var(--ui-body-size);line-height:1.72}
 
 
 
-      const heroAboutTransition = document.getElementById('hero-about');
-      const heroBackgroundArea = document.getElementById('home');
-      const aboutBackgroundArea = document.getElementById('about');
-
-      if (
-        heroAboutTransition &&
-        heroBackgroundArea &&
-        aboutBackgroundArea
-      ) {
-        const updateScopedBackgroundTransition = () => {
-          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            heroAboutTransition.style.setProperty('--transition-progress', '1');
-            heroAboutTransition.style.setProperty('--transition-parallax', '0px');
-            return;
-          }
-
-          const aboutRect = aboutBackgroundArea.getBoundingClientRect();
-          const viewportHeight =
-            window.innerHeight || document.documentElement.clientHeight;
-
-          /*
-            Because Hero and About are one continuous section, the color
-            begins changing before About reaches the viewport and finishes
-            only after About has moved well into view.
-          */
-          const transitionStart = viewportHeight * 1.18;
-          const transitionEnd = viewportHeight * 0.10;
-          const rawProgress =
-            (transitionStart - aboutRect.top) /
-            (transitionStart - transitionEnd);
-
-          const clampedProgress = Math.min(1, Math.max(0, rawProgress));
-          const progress =
-            clampedProgress *
-            clampedProgress *
-            (3 - 2 * clampedProgress);
-
-          const parallaxOffset = (progress - 0.5) * -72;
-
-          heroAboutTransition.style.setProperty(
-            '--transition-progress',
-            progress.toFixed(3)
-          );
-
-          heroAboutTransition.style.setProperty(
-            '--transition-parallax',
-            `${parallaxOffset.toFixed(1)}px`
-          );
-        };
-
-        let transitionFrame = null;
-
-        const requestScopedTransitionUpdate = () => {
-          if (transitionFrame) return;
-
-          transitionFrame = window.requestAnimationFrame(() => {
-            updateScopedBackgroundTransition();
-            transitionFrame = null;
-          });
-        };
-
-        updateScopedBackgroundTransition();
-        window.addEventListener(
-          'scroll',
-          requestScopedTransitionUpdate,
-          { passive:true }
-        );
-        window.addEventListener('resize', requestScopedTransitionUpdate);
-      }
 
 
       /* Restored old Tools section */
@@ -7969,48 +8178,104 @@ p{font-size:var(--ui-body-size);line-height:1.72}
       })();
 
 
-      /* Keep the Hero blue fade aligned with the real Hero height. */
-      (() => {
-        const combinedSection = document.getElementById('hero-about');
-        const heroArea = document.getElementById('home');
-
-        if (!combinedSection || !heroArea) return;
-
-        let resizeFrame = null;
-
-        const updateHeroFadeHeight = () => {
-          const heroHeight = Math.max(
-            1,
-            Math.ceil(heroArea.getBoundingClientRect().height)
-          );
-
-          combinedSection.style.setProperty(
-            '--hero-fade-height',
-            `${heroHeight}px`
-          );
-        };
-
-        const requestHeroFadeUpdate = () => {
-          if (resizeFrame !== null) return;
-
-          resizeFrame = window.requestAnimationFrame(() => {
-            updateHeroFadeHeight();
-            resizeFrame = null;
-          });
-        };
-
-        updateHeroFadeHeight();
-        window.addEventListener('load', updateHeroFadeHeight, { once:true });
-        window.addEventListener('resize', requestHeroFadeUpdate);
-
-        if ('ResizeObserver' in window) {
-          const heroFadeObserver = new ResizeObserver(requestHeroFadeUpdate);
-          heroFadeObserver.observe(heroArea);
-        }
-      })();
 
       document.getElementById('year').textContent = new Date().getFullYear();
     })();
   </script>
-</body>
+<script>
+(() => {
+  const initialiseHeroAboutFade = () => {
+    const section = document.getElementById('hero-about');
+    const hero = document.getElementById('home');
+    const about = document.getElementById('about');
+    const white = section?.querySelector('.hero-about-transition-bg__white');
+    const texture = section?.querySelector('.hero-about-transition-bg__texture');
+
+    if (!section || !hero || !about || !white || !texture) return;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      section.style.setProperty('--transition-progress', '1');
+      white.style.opacity = '1';
+      texture.style.opacity = '0.48';
+      return;
+    }
+
+    let frame = 0;
+
+    const clamp = (value, min, max) => (
+      Math.min(max, Math.max(min, value))
+    );
+
+    const smoothstep = value => (
+      value * value * (3 - 2 * value)
+    );
+
+    const update = () => {
+      frame = 0;
+
+      const pageY = window.scrollY || window.pageYOffset;
+      const sectionTop =
+        section.getBoundingClientRect().top + pageY;
+      const aboutTop =
+        about.getBoundingClientRect().top + pageY;
+      const viewportHeight =
+        window.innerHeight || document.documentElement.clientHeight;
+
+      /*
+        Start fading shortly after scrolling begins.
+        Finish around the point where About enters the viewport.
+      */
+      const fadeStart = sectionTop + viewportHeight * 0.06;
+      const fadeEnd = Math.max(
+        fadeStart + 1,
+        aboutTop - viewportHeight * 0.12
+      );
+
+      const rawProgress =
+        (pageY - fadeStart) / (fadeEnd - fadeStart);
+
+      const progress = smoothstep(
+        clamp(rawProgress, 0, 1)
+      );
+
+      section.style.setProperty(
+        '--transition-progress',
+        progress.toFixed(4)
+      );
+
+      /* Direct inline opacity makes the animation independent of old CSS. */
+      white.style.opacity = progress.toFixed(4);
+      texture.style.opacity = (progress * 0.56).toFixed(4);
+    };
+
+    const requestUpdate = () => {
+      if (frame) return;
+      frame = window.requestAnimationFrame(update);
+    };
+
+    update();
+
+    window.addEventListener('scroll', requestUpdate, { passive:true });
+    window.addEventListener('resize', requestUpdate);
+    window.addEventListener('load', requestUpdate, { once:true });
+
+    if ('ResizeObserver' in window) {
+      const observer = new ResizeObserver(requestUpdate);
+      observer.observe(section);
+      observer.observe(hero);
+      observer.observe(about);
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener(
+      'DOMContentLoaded',
+      initialiseHeroAboutFade,
+      { once:true }
+    );
+  } else {
+    initialiseHeroAboutFade();
+  }
+})();
+</script></body>
 </html>
