@@ -6300,56 +6300,136 @@ p {
   }
 }
 
-/* 34-inch ultrawide and 4K monitors: expand without making text
-   lines excessively long. */
-@media (min-width: 2100px) {
+/* 2560x1440 ultrawide desktop composition.
+   Uses a controlled editorial canvas instead of scaling every element up. */
+@media (min-width: 2100px) and (max-width: 3199px) {
   :root {
-    --container: 1840px;
+    --container: 1920px;
   }
 
   .container,
   .studio-hero__inner {
-    width: min(var(--container), calc(100% - 180px));
+    width: min(var(--container), calc(100% - 240px));
   }
 
   .section {
-    padding-block: 190px;
+    padding-block: clamp(138px, 6vw, 164px);
+  }
+
+  .section-title {
+    font-size: clamp(58px, 3.4vw, 82px) !important;
+    line-height: .98 !important;
+    max-width: 15ch;
+  }
+
+  .section-lede {
+    max-width: 58ch;
+    font-size: 18px;
+  }
+
+  .studio-hero__inner {
+    height: calc(100svh - 82px);
+    max-height: 1358px;
   }
 
   .studio-hero__stage--refined {
-    grid-template-columns: minmax(0, 1.12fr) minmax(620px, .88fr) !important;
-    gap: 118px !important;
+    grid-template-columns: minmax(0, 1.08fr) minmax(560px, .92fr) !important;
+    gap: clamp(72px, 4.2vw, 108px) !important;
   }
 
   .studio-hero__headline-wrap {
-    max-width: 980px;
+    max-width: 940px;
+    padding-block: 26px 44px;
+  }
+
+  .studio-hero__main-heading {
+    font-size: clamp(78px, 5.1vw, 124px) !important;
+    line-height: .9 !important;
+    letter-spacing: -.065em !important;
   }
 
   .studio-hero__portrait--refined {
-    width: min(100%, 760px) !important;
+    width: min(100%, 680px) !important;
+    justify-self: end;
+  }
+
+  .studio-hero__portrait-image img {
+    width: 118% !important;
+    height: 118% !important;
+    transform: translate(-7%, 0) scale(1.04) !important;
+  }
+
+  .studio-hero__portrait--refined:hover .studio-hero__portrait-image img {
+    transform: translate(-7%, -1%) scale(1.065) !important;
+  }
+
+  .work-head,
+  .services-head,
+  .quotes-head {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, .48fr);
+    gap: 120px;
+    margin-bottom: 76px;
+  }
+
+  .work-grid {
+    gap: 38px;
   }
 
   .work-card:nth-child(1),
   .work-card:nth-child(4) {
-    grid-template-columns: minmax(0, 1.3fr) minmax(470px, .7fr);
-    gap: 100px;
+    grid-template-columns: minmax(0, 1.18fr) minmax(430px, .82fr);
+    gap: 84px;
   }
 
   .work-visual {
-    height: 540px;
+    height: 470px;
   }
 
   .work-card:nth-child(1) .work-visual,
   .work-card:nth-child(4) .work-visual {
-    height: 760px;
+    height: 650px;
+  }
+
+  .service-row {
+    min-height: 168px;
+    grid-template-columns: 96px minmax(340px, .7fr) minmax(420px, 1fr);
+    gap: 54px;
+  }
+
+  .process-grid,
+  .quotes-grid {
+    gap: 30px;
   }
 
   .process-step {
-    min-height: 420px;
+    min-height: 360px;
+    padding: 34px;
   }
 
   .quote-card {
-    min-height: 410px;
+    min-height: 360px;
+    padding: 34px;
+  }
+
+  .contact-shell {
+    grid-template-columns: minmax(0, .85fr) minmax(620px, 1.15fr);
+    gap: 130px;
+  }
+}
+
+/* Very large 4K displays retain generous gutters and a readable line length. */
+@media (min-width: 3200px) {
+  :root {
+    --container: 2160px;
+  }
+
+  .container,
+  .studio-hero__inner {
+    width: min(var(--container), calc(100% - 320px));
+  }
+
+  .section {
+    padding-block: 180px;
   }
 }
 
