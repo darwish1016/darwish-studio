@@ -6107,6 +6107,274 @@ p {
   }
 }
 
+
+/* =========================================================
+   LARGE DESKTOP + ULTRAWIDE RESPONSIVE ENHANCEMENTS
+   Optimized for 24-inch, 27-inch, 32-inch and 34-inch screens
+   ========================================================= */
+
+/* Fluid desktop foundation: keeps laptop layout unchanged while
+   allowing the site to make better use of larger monitors. */
+@media (min-width: 1280px) {
+  :root {
+    --container: clamp(1260px, 84vw, 1560px);
+  }
+
+  .container,
+  .studio-hero__inner {
+    width: min(var(--container), calc(100% - clamp(64px, 7vw, 140px)));
+  }
+
+  .section {
+    padding-block: clamp(120px, 8vw, 158px);
+  }
+
+  .section-lede {
+    font-size: clamp(16px, .92vw, 18px);
+    line-height: 1.8;
+  }
+
+  .nav {
+    min-height: 82px;
+  }
+
+  .nav-links {
+    gap: clamp(24px, 1.65vw, 34px);
+  }
+
+  .nav-links > a:not(.button) {
+    padding-block: 31px;
+    font-size: 12px;
+  }
+
+  .studio-hero {
+    padding-top: 82px !important;
+  }
+
+  .studio-hero__inner {
+    height: calc(100svh - 82px);
+  }
+
+  .studio-hero__stage--refined {
+    grid-template-columns: minmax(0, 1.08fr) minmax(470px, .92fr) !important;
+    gap: clamp(44px, 4.2vw, 84px) !important;
+  }
+
+  .studio-hero__headline-wrap {
+    max-width: 900px;
+  }
+
+  .studio-hero__portrait--refined {
+    width: min(100%, 620px) !important;
+  }
+
+  .studio-hero__ctas {
+    margin-top: clamp(28px, 3.2vh, 42px);
+  }
+
+  .studio-hero__cta {
+    min-height: 52px;
+    padding-inline: 26px;
+  }
+
+  .work-head,
+  .services-head,
+  .quotes-head {
+    gap: clamp(72px, 6vw, 116px);
+    margin-bottom: clamp(58px, 4.8vw, 82px);
+  }
+
+  .work-grid {
+    gap: clamp(28px, 2.2vw, 40px);
+  }
+
+  .work-card:nth-child(1),
+  .work-card:nth-child(4) {
+    grid-template-columns: minmax(0, 1.18fr) minmax(400px, .82fr);
+    gap: clamp(42px, 4vw, 76px);
+  }
+
+  .work-visual {
+    height: clamp(390px, 26vw, 470px);
+  }
+
+  .work-card:nth-child(1) .work-visual,
+  .work-card:nth-child(4) .work-visual {
+    height: clamp(540px, 34vw, 660px);
+  }
+
+  .work-copy {
+    padding-top: clamp(26px, 2vw, 36px);
+  }
+
+  .service-row {
+    min-height: clamp(152px, 10vw, 184px);
+    grid-template-columns: 84px minmax(280px, .72fr) minmax(320px, 1fr);
+    gap: clamp(36px, 3vw, 58px);
+  }
+
+  .process-step {
+    min-height: clamp(330px, 23vw, 400px);
+    padding: clamp(26px, 2.2vw, 38px);
+  }
+
+  .quote-card {
+    min-height: clamp(330px, 22vw, 390px);
+    padding: clamp(28px, 2.2vw, 38px);
+  }
+
+  .contact-shell {
+    grid-template-columns: minmax(0, .88fr) minmax(520px, 1.12fr);
+    gap: clamp(90px, 7vw, 140px);
+  }
+
+  .contact-form {
+    padding: clamp(38px, 3vw, 52px);
+  }
+}
+
+/* 27–32 inch desktop screens */
+@media (min-width: 1600px) {
+  :root {
+    --container: min(86vw, 1680px);
+  }
+
+  .section {
+    padding-block: clamp(148px, 8.2vw, 180px);
+  }
+
+  .section-title {
+    max-width: 14ch;
+  }
+
+  .studio-grid-lines {
+    background-size: 100% 250px, 25% 100%;
+    background-position: 0 230px, 0 0;
+  }
+
+  .studio-hero__stage--refined {
+    grid-template-columns: minmax(0, 1.14fr) minmax(540px, .86fr) !important;
+    gap: clamp(64px, 5vw, 104px) !important;
+  }
+
+  .studio-hero__portrait--refined {
+    width: min(100%, 700px) !important;
+  }
+
+  .studio-hero__portrait-image img {
+    width: 124% !important;
+    height: 124% !important;
+    transform: translate(-9%, 0) scale(1.08) !important;
+  }
+
+  .studio-hero__portrait--refined:hover .studio-hero__portrait-image img {
+    transform: translate(-9%, -1.5%) scale(1.11) !important;
+  }
+
+  .work-grid {
+    gap: 42px;
+  }
+
+  .work-card:nth-child(1),
+  .work-card:nth-child(4) {
+    grid-template-columns: minmax(0, 1.25fr) minmax(430px, .75fr);
+    gap: clamp(58px, 4.6vw, 92px);
+  }
+
+  .work-visual {
+    height: clamp(440px, 25vw, 520px);
+  }
+
+  .work-card:nth-child(1) .work-visual,
+  .work-card:nth-child(4) .work-visual {
+    height: clamp(620px, 35vw, 720px);
+  }
+
+  .experience-main h3 {
+    font-size: clamp(38px, 2.55vw, 54px);
+  }
+
+  .experience-main p {
+    max-width: 72ch;
+    font-size: 15px;
+  }
+}
+
+/* 34-inch ultrawide and 4K monitors: expand without making text
+   lines excessively long. */
+@media (min-width: 2100px) {
+  :root {
+    --container: 1840px;
+  }
+
+  .container,
+  .studio-hero__inner {
+    width: min(var(--container), calc(100% - 180px));
+  }
+
+  .section {
+    padding-block: 190px;
+  }
+
+  .studio-hero__stage--refined {
+    grid-template-columns: minmax(0, 1.12fr) minmax(620px, .88fr) !important;
+    gap: 118px !important;
+  }
+
+  .studio-hero__headline-wrap {
+    max-width: 980px;
+  }
+
+  .studio-hero__portrait--refined {
+    width: min(100%, 760px) !important;
+  }
+
+  .work-card:nth-child(1),
+  .work-card:nth-child(4) {
+    grid-template-columns: minmax(0, 1.3fr) minmax(470px, .7fr);
+    gap: 100px;
+  }
+
+  .work-visual {
+    height: 540px;
+  }
+
+  .work-card:nth-child(1) .work-visual,
+  .work-card:nth-child(4) .work-visual {
+    height: 760px;
+  }
+
+  .process-step {
+    min-height: 420px;
+  }
+
+  .quote-card {
+    min-height: 410px;
+  }
+}
+
+/* Prevent a short but wide browser window from making the hero content
+   too tall or clipping the portrait. */
+@media (min-width: 1280px) and (max-height: 850px) {
+  .studio-hero__headline-wrap {
+    padding-block: 14px 22px;
+  }
+
+  .studio-hero__portrait--refined {
+    width: min(100%, 520px) !important;
+  }
+
+  .studio-hero__ctas {
+    margin-top: 22px;
+  }
+}
+
+@media (min-width: 1600px) and (min-height: 950px) {
+  .studio-hero__portrait--refined {
+    width: min(100%, 720px) !important;
+  }
+}
+
 </style>
 </head>
 <body>
