@@ -297,26 +297,6 @@
   /* ---------- Footer year ---------- */
   $$('[data-year]').forEach((el) => { el.textContent = new Date().getFullYear(); });
 
-  /* ---------- Image lightbox (design gallery) ---------- */
-  const lightbox = $('#lightbox');
-  if (lightbox && typeof lightbox.showModal === 'function') {
-    const image = $('img', lightbox);
-    const caption = $('[data-lightbox-caption]', lightbox);
-    $$('[data-lightbox]').forEach((item) => {
-      item.addEventListener('click', () => {
-        const thumb = $('img', item);
-        image.src = item.dataset.lightbox;
-        image.alt = thumb?.alt || '';
-        caption.textContent = thumb?.alt || '';
-        lightbox.showModal();
-      });
-    });
-    $('[data-lightbox-close]', lightbox)?.addEventListener('click', () => lightbox.close());
-    lightbox.addEventListener('click', (event) => {
-      if (event.target === lightbox) lightbox.close();
-    });
-  }
-
   /* ---------- Live clocks (numbers section) ---------- */
   const clocks = $$('[data-clock]');
   if (clocks.length) {
