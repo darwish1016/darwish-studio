@@ -192,7 +192,7 @@
   /* ---------- Page transition between the homepage and case studies ---------- */
   const titles = {
     'index': 'Omar Darwish', '': 'Omar Darwish',
-    'sebu-sanctuary': 'Sebu Sanctuary', 'levels-it': 'Levels IT', 'homelend': 'Homelend Solutions',
+    'sebu-sanctuary': 'Sebu Sanctuary', 'homelend': 'Homelend Solutions',
     'ignite-training': 'Ignite Training', 'callaughan-partners': 'Callaughan Partners', 'seek-consciousness': 'Seek Consciousness',
   };
   const pageKey = (url) => url.pathname.split('/').pop().replace(/\.html$/, '');
